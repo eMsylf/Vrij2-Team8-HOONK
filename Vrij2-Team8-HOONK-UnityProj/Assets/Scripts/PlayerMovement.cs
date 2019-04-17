@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Start() {
         rigidbody_Player = GetComponent<Rigidbody>();
-        
-
     }
 
     private void FixedUpdate() {
@@ -25,8 +23,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Movement() {
-        //rigidbody_Player.MovePosition();
-        //transform.position += new Vector3 (0, 0, Input.GetAxis("Vertical") * Time.deltaTime);
         rigidbody_Player.position += transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * MovementSpeed;
     }
 
