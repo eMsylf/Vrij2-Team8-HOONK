@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Rotation() {
         rotation = Input.GetAxis("Horizontal") * RotationSpeed;
+        if (Input.GetAxis("Vertical") < 0) {
+            rotation *= -1;
+        }
         m_EulerAngleVelocity = new Vector3(0, rotation, 0);
         Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
         rigidbody_Player.MoveRotation(rigidbody_Player.rotation * deltaRotation);
