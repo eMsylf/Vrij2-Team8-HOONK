@@ -2,88 +2,97 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class Eye : MonoBehaviour {
     [Range(1, 100)]
     public int NumberOfDetectionLines = 3;
     [Range(0, 10)]
-    public float ViewDistance = 5.0f;
+    public float ViewDistanceRadius = 5.0f;
     [Range(0, 360)]
     public float ViewAngle = 15.0f;
 
-    private float viewDiameter;
+    private float viewDistanceDiameter;
     private Vector3 drawLineTo;
     private LineRenderer lineRenderer;
 
     private void Awake() {
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = true;
+        //lineRenderer.enabled = true;
         //lineRenderer.useWorldSpace = true;
     }
 
     private void FixedUpdate() {
-        CastRays();
+        ViewConeByRayCast();
     }
 
-    private void CastRays() {
+    private void ViewConeByRayCast() {
         if (NumberOfDetectionLines == 1) { // 1 detection line
-            DrawDetectionLines(0);
-            ForLoopStuff();
+            Formula(0);
+            DrawDetectionLinesRaycast(Vector3.zero, drawLineTo);
         } else if (NumberOfDetectionLines % 2 == 0) { // EVEN number of detection lines
             for (float i = -NumberOfDetectionLines / 2; i <= NumberOfDetectionLines / 2; i++) {
-                DrawDetectionLines(i);
-                ForLoopStuff();
+                Formula(i);
+                DrawDetectionLinesRaycast(Vector3.zero, drawLineTo);
             }
         } else { // UNEVEN number of detection lines
             for (float i = -NumberOfDetectionLines / 2 - .5f; i <= NumberOfDetectionLines / 2 + .5f; i++) {
-                DrawDetectionLines(i);
-                ForLoopStuff();
+                Formula(i);
+                DrawDetectionLinesRaycast(Vector3.zero, drawLineTo);
             }
         }
     }
-
-    private void ForLoopStuff() {
-    }
-
-    private void RayVisualisation () {
-
-    }
-
+    
     private void OnDrawGizmos() {
-        viewDiameter = ViewDistance * 2;
+        viewDistanceDiameter = ViewDistanceRadius * 2;
         Gizmos.color = Color.red;
+        Gizmos.matrix = transform.localToWorldMatrix;
+        
+
 
         // Draw view sphere to indicate the range
-        Gizmos.DrawWireSphere(transform.position, viewDiameter);
+        Gizmos.DrawWireSphere(Vector3.zero, viewDistanceDiameter);
 
         if (NumberOfDetectionLines == 1) {
-            DrawDetectionLines(0);
+            Formula(0);
+            DrawDetectionLinesGizmo(Vector3.zero, drawLineTo);
         } else if (NumberOfDetectionLines % 2 == 0) { // EVEN number of detection lines
             for (float i = -NumberOfDetectionLines / 2; i <= NumberOfDetectionLines / 2; i++) {
-                DrawDetectionLines(i);
-                Gizmos.DrawLine(transform.position, drawLineTo);
+                Formula(i);
+                DrawDetectionLinesGizmo(Vector3.zero, drawLineTo);
             }
         } else { // UNEVEN number of detection lines
             for (float i = -NumberOfDetectionLines / 2 - .5f; i <= NumberOfDetectionLines / 2 + .5f; i++) {
-                DrawDetectionLines(i);
-                Gizmos.DrawLine(transform.position, drawLineTo);
+                Formula(i);
+                DrawDetectionLinesGizmo(Vector3.zero, drawLineTo);
             }
         }
     }
 
-    private void DrawDetectionLines(float i) {
+    private void Formula(float detectionLine) {
         // Formula
-        float formula = i * ((ViewAngle * Mathf.Deg2Rad) / NumberOfDetectionLines);
+        float formula = detectionLine * ((ViewAngle * Mathf.Deg2Rad) / NumberOfDetectionLines);
 
-        float xPos = viewDiameter * Mathf.Cos(formula);
-        float yPos = viewDiameter * Mathf.Sin(formula);
+        float xPos = viewDistanceDiameter * Mathf.Sin(formula);
+        float yPos = viewDistanceDiameter * Mathf.Cos(formula);
 
         // Create new line end position using the positions calculated above
-        drawLineTo = transform.position + new Vector3(xPos, 0, yPos);
-        Physics.Linecast(transform.position, drawLineTo, out RaycastHit hitInfo);
+        drawLineTo = Vector3.zero + new Vector3(xPos, yPos, 0);
+    }
+
+    private void DrawDetectionLinesGizmo(Vector3 startPoint, Vector3 endPoint) {
+        Gizmos.DrawLine(startPoint, endPoint);
+    }
+
+    private void DrawDetectionLinesRaycast(Vector3 start, Vector3 raycastEnd) {
+        Physics.Raycast(start, raycastEnd, out RaycastHit hitInfo, ViewDistanceRadius);
+        //Physics.Linecast(transform.position, drawLineTo, out RaycastHit hitInfo);
         HitCheck(hitInfo);
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, drawLineTo);
+
+        LineVisualization(start, raycastEnd);
+    }
+
+    private void LineVisualization(Vector3 startPoint, Vector3 endpoint) {
+        lineRenderer.SetPosition(0, startPoint);
+        lineRenderer.SetPosition(1, endpoint);
     }
 
     private void HitCheck(RaycastHit hitInfo) {
@@ -94,9 +103,5 @@ public class Eye : MonoBehaviour {
         } else {
             Debug.Log("Hit " + hitInfo.transform.name);
         }
-    }
-
-    private void LineVisualization() {
-
     }
 }
