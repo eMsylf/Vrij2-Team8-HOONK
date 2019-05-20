@@ -10,16 +10,11 @@ public class Wind_Script : MonoBehaviour {
     private float distanceFromFan;
 
     private void Awake() {
-
-        windZoneStrength = GetComponentInParent<WindZone>().windMain;
-
-
-        windStrength = windZoneStrength;
+        ApplyWindZoneStrengthToVariables();
     }
 
     private void FixedUpdate() {
-        windZoneStrength = GetComponentInParent<WindZone>().windMain;
-        windStrength = windZoneStrength;
+        ApplyWindZoneStrengthToVariables();
 
         if (changeWindStrengthFromWindZone) {
             windStrength = windZoneStrength;
@@ -37,5 +32,10 @@ public class Wind_Script : MonoBehaviour {
         Debug.Log("Object in wind zone: " + other.name + " || Force applied: " + appliedForce);
 
         other.attachedRigidbody.AddForce(Vector3.forward * windStrength * (1/distanceFromFan));
+    }
+
+    private void ApplyWindZoneStrengthToVariables() {
+        windZoneStrength = GetComponentInParent<WindZone>().windMain;
+        windStrength = windZoneStrength;
     }
 }

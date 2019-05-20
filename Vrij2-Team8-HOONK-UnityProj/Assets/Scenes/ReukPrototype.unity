@@ -5405,3 +5405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WindHitbox: {fileID: 0}
+  fanStrengthMin: 14.1
+  fanStrengthMax: 35.2
+  currentStrength: 0
+  strengthChangeSpeed: 0.39
+  windZone: {fileID: 0}
