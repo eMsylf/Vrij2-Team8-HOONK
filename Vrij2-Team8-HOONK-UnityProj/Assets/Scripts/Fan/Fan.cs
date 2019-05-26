@@ -27,7 +27,7 @@ public class Fan : MonoBehaviour {
 
     void FixedUpdate() {
         currentStrength = Mathf.Sin(Time.time * strengthChangeSpeed) * (Mathf.Abs(fanStrengthMax - fanStrengthMin) / 2) + Mathf.Abs((fanStrengthMax + fanStrengthMin) / 2);
-        Debug.Log(currentStrength);
+        //Debug.Log(currentStrength);
 
     }
 

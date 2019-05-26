@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class WindTestObject : MonoBehaviour {
+public class RespawnAfterSeconds : MonoBehaviour {
     private Vector3 startingPosition;
     private bool hasJustRespawned = true;
     [SerializeField] private float respawnTimer = 5f;

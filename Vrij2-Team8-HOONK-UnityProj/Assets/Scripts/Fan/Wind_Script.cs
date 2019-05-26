@@ -29,7 +29,7 @@ public class Wind_Script : MonoBehaviour {
 
         float appliedForce = windStrength * (1 / distanceFromFan);
 
-        Debug.Log("Object in wind zone: " + other.name + " || Force applied: " + appliedForce);
+        //Debug.Log("Object in wind zone: " + other.name + " || Force applied: " + appliedForce);
 
         other.attachedRigidbody.AddForce(Vector3.forward * windStrength * (1/distanceFromFan));
     }
