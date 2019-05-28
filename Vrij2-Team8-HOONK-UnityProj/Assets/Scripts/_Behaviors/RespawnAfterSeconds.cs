@@ -6,7 +6,7 @@ using UnityEngine;
 public class RespawnAfterSeconds : MonoBehaviour {
     private Vector3 startingPosition;
     private bool hasJustRespawned = true;
-    [SerializeField] private float respawnTimer = 5f;
+    [SerializeField] private float seconds = 5f;
 
     private void Awake() {
         startingPosition = transform.position;
@@ -22,7 +22,7 @@ public class RespawnAfterSeconds : MonoBehaviour {
         hasJustRespawned = false;
         Debug.Log("Waiting before respawn...");
 
-        yield return new WaitForSeconds(respawnTimer);
+        yield return new WaitForSeconds(seconds);
 
         transform.position = startingPosition;
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);

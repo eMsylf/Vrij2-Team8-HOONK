@@ -17,8 +17,9 @@ public class Fan : MonoBehaviour {
     private float strengthMultiplier;
 
     void Awake() {
+        // Add a WindZone if there is none, or store the present one
         if (GetComponent<WindZone>() == null) {
-            gameObject.AddComponent<WindZone>();
+            windZone = gameObject.AddComponent<WindZone>();
         } else {
             windZone = GetComponent<WindZone>();
         }
@@ -34,7 +35,21 @@ public class Fan : MonoBehaviour {
     /// <summary>
     /// Find a suitable wind collider that is a trigger among the Fan's children. This is done, assuming that there is only one trigger among the children
     /// </summary>
-    public void FindWindTrigger() {
+    /// 
+
+    public virtual void FindWindTrigger() {
+        for (int i = 0; i < GetComponentsInChildren<Collider>().Length; i++) {
+            Collider tempCollider = GetComponentsInChildren<Collider>()[i];
+            if (tempCollider.isTrigger) {
+                WindHitbox = GetComponentsInChildren<Collider>()[i];
+            }
+        }
+        if (WindHitbox == null) {
+            Debug.LogWarning("There's no suitable collider to act as wind in the Fan's children. Make sure there's at least one collider set as Trigger present, that has 'Wind' in its name");
+        }
+    }
+
+    public void FindWindTrigger(string name) {
         for (int i = 0; i < GetComponentsInChildren<Collider>().Length; i++) {
             Collider tempCollider = GetComponentsInChildren<Collider>()[i];
             if (tempCollider.isTrigger) {
@@ -43,7 +58,6 @@ public class Fan : MonoBehaviour {
                 }
             }
         }
-
         if (WindHitbox == null) {
             Debug.LogWarning("There's no suitable collider to act as wind in the Fan's children. Make sure there's at least one collider set as Trigger present, that has 'Wind' in its name");
         }
