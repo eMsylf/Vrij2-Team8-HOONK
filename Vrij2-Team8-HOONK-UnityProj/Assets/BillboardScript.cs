@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BillboardScript : MonoBehaviour {
-    [SerializeField] private Transform camera;
+    [SerializeField] private Transform mainCamera;
 
 
     private void Update() {
-        gameObject.transform.LookAt(camera);
+        gameObject.transform.LookAt(mainCamera);
     }
 }
