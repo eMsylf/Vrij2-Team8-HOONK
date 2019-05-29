@@ -42,7 +42,7 @@ public class ScentParticlePool : MonoBehaviour{
             if (scentParticlePrefab == null) {
                 Debug.LogWarning("The scent particle prefab is not assigned. Please do so in the '" + gameObject.name + "'.");
             } else {
-                for (int i = 0; i < spotsRemaining; i++) {
+                for (int i = 0; i <= spotsRemaining; i++) {
                     Transform currentSpawnTransform = Instantiate(scentParticlePrefab).transform;
                     
                     Debug.Log("Adding " + currentSpawnTransform.name + "to pool position " + i);
@@ -66,6 +66,8 @@ public class ScentParticlePool : MonoBehaviour{
 
     private IEnumerator spawnObjectPool() {
         // Spawn an object from the pool at the scent object's position
+        // DEZE MOET ELKE KEER OPNIEUW KIJKEN NAAR SNELHEID EN DE LENGTE VAN DE LIJST, EN JUIST OPVULLEN, 
+        // OP HET MOMENT WORDEN SOMMIGE OBJECTEN NIET MEER AANGESPROKEN TERWIJL DAT WEL ZOU MOETEN
         scentParticlePool[iterator].gameObject.SetActive(true);
         GetDespawnAfterSeconds = scentParticlePool[iterator].GetComponent<DespawnAfterSeconds>();
 
@@ -79,6 +81,7 @@ public class ScentParticlePool : MonoBehaviour{
 
 
         // Give the particle speed
+        // THIS SHOULD BE INHERITED FROM THE WIND HITBOX
         Rigidbody particle_rb = scentParticlePool[iterator].GetComponent<Rigidbody>();
 
         particle_rb.isKinematic = false;
