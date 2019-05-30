@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 1212602078}
   - component: {fileID: 1212602077}
   m_Layer: 0
-  m_Name: Geur Bron 2
+  m_Name: Geur Bron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
