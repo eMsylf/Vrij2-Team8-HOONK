@@ -20,7 +20,7 @@ public class ScentParticlePool : MonoBehaviour{
 
     private Vector3 spawnPos;
 
-    DespawnAfterSeconds GetDespawnAfterSeconds;
+    Despawn GetDespawn;
 
     private void Awake() {
         // Collect all ScentParticles in the pool, and exclude the pool object itself.
@@ -64,14 +64,25 @@ public class ScentParticlePool : MonoBehaviour{
         particleLifetime = scentParticlePool.Count / particleIntervalSeconds;
     }
 
+
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log("Colliding with " + other.name);
+
+        if (other.name == "Wind") {
+            Debug.Log("HECK YEA IT'S REGISTERING");
+        } else {
+            Debug.Log("FUCK IT'S NOT REGISTERING");
+        }
+    }
+
     private IEnumerator spawnObjectPool() {
         // Spawn an object from the pool at the scent object's position
         // DEZE MOET ELKE KEER OPNIEUW KIJKEN NAAR SNELHEID EN DE LENGTE VAN DE LIJST, EN JUIST OPVULLEN, 
         // OP HET MOMENT WORDEN SOMMIGE OBJECTEN NIET MEER AANGESPROKEN TERWIJL DAT WEL ZOU MOETEN
+        GetDespawn = scentParticlePool[iterator].GetComponent<Despawn>();
         scentParticlePool[iterator].gameObject.SetActive(true);
-        GetDespawnAfterSeconds = scentParticlePool[iterator].GetComponent<DespawnAfterSeconds>();
 
-        StartCoroutine(GetDespawnAfterSeconds.WaitBeforeDespawn(scentParticlePool[iterator].gameObject, particleLifetime));
+        StartCoroutine(GetDespawn.DespawnAfter(particleLifetime, scentParticlePool[iterator].gameObject));
 
 
 
@@ -89,7 +100,7 @@ public class ScentParticlePool : MonoBehaviour{
 
         iterator++;
         Debug.Log(iterator + " / " + scentParticlePool.Count);
-        if (iterator >= scentParticlePool.Count - 1) {
+        if (iterator >= scentParticlePool.Count) {
             iterator = 0;
         }
         yield return new WaitForSeconds(particleIntervalSeconds);
