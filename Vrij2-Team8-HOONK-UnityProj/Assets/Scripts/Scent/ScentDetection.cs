@@ -7,46 +7,53 @@ public class ScentDetection : MonoBehaviour {
     [Range(.01f, .1f)]
     [SerializeField] private float movementSpeed = .01f;
 
-    private Transform destination;
+
+    [SerializeField] private bool foundSource = false;
+    private Transform destinationTransform;
+
+    private Transform scentSource;
+    private Vector3 destination;
 
     private void Start() {
-        destination = transform;
+        destinationTransform = transform;
+        destination = destinationTransform.position;
     }
 
     private void FixedUpdate() {
-        if (transform != destination) {
-            Quaternion oldRotation = transform.rotation;
+        if (foundSource) {
+            // Wat moet er gebeuren als de bron is gevonden?
+            transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed);
+        } else {
+            // Store old rotation from the start of the frame
+            //Quaternion oldRotation = transform.rotation;
 
-            transform.position = Vector3.MoveTowards(transform.position, destination.position, movementSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed);
             transform.LookAt(destination);
             // Keep x and z rotations at 0
             Quaternion newRotation = transform.rotation;
-
             transform.rotation = new Quaternion(0, newRotation.y, 0, newRotation.w);
-            
         }
-
-
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.name.Contains("Scent particle pool")) {
-            destination = other.transform;
+        Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
+        if (other.name == ("Scent particle pool")) {
+            destination = other.transform.position;
+            Debug.Log("Going to the scent's source");
+            foundSource = true;
+        } else if (other.name.Contains("Scent particle")) {
+            destination = other.transform.position;
             Debug.Log("Updated the destination position");
-        }
-        else if (other.name.Contains("Scent particle")) {
-            destination = other.transform;
-            Debug.Log("Updated the destination position");
-        }
-        else {
-            Debug.Log("<b>Nope that's not the right name</b>");
+        } else {
+            Debug.Log(gameObject.name + " - Non-scent object has entered smell range.");
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.name.Contains("Scent particle pool")) {
-            destination = transform;
+            destinationTransform = transform;
             Debug.Log("Updated the destination position to self");
+            foundSource = false;
         }
     }
 
