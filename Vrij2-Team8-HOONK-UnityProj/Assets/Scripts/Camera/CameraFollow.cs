@@ -6,7 +6,8 @@ using UnityEngine;
 [System.Serializable]
 public class CameraFollow : MonoBehaviour {
     [SerializeField] private Transform MainCamera;
-    public Transform CameraMount;
+    public Transform CameraMountOuter;
+    public Transform CameraMountInner;
     public Transform MountFollowsThisObject;
     public Transform CameraLooksAtThisObject;
 
@@ -53,14 +54,14 @@ public class CameraFollow : MonoBehaviour {
         // Set Camera Mount position
         desiredPosition.x = MountFollowsThisObject.position.x;
         desiredPosition.z = MountFollowsThisObject.position.z;
-        desiredPosition.y = CameraMount.position.y;
-        smoothedPosition = Vector3.Lerp(CameraMount.position, desiredPosition, smoothSpeed);
-        CameraMount.position = smoothedPosition;
+        desiredPosition.y = CameraMountOuter.position.y;
+        smoothedPosition = Vector3.Lerp(CameraMountOuter.position, desiredPosition, smoothSpeed);
+        CameraMountOuter.position = smoothedPosition;
     }
 
     private void SetMainCameraPosition() {
         // Set Main Camera position (above the target)
-        MainCamera.position = CameraMount.position + CameraMount.up * CameraDistance;
+        MainCamera.position = CameraMountInner.position + CameraMountInner.up * CameraDistance;
     }
 
     private void SetCameraLook() {

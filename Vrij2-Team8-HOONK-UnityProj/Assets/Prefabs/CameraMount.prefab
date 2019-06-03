@@ -61,7 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 582428701298455178}
-  CameraMount: {fileID: 582428699834474493}
+  CameraMountOuter: {fileID: 0}
+  CameraMountInner: {fileID: 0}
   MountFollowsThisObject: {fileID: 582428699834474493}
   CameraLooksAtThisObject: {fileID: 582428699834474493}
   CameraDistance: 2.67
