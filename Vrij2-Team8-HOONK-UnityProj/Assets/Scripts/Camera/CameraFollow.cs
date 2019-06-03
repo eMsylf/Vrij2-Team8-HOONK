@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour {
     public Transform MountFollowsThisObject;
     public Transform CameraLooksAtThisObject;
 
-    [Range(1f, 5f)]
+    [Range(1f, 20f)]
     public float CameraDistance = 3f;
     [Range(.1f, 1f)]
     public float smoothSpeed = .125f;

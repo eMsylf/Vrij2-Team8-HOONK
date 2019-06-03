@@ -22,7 +22,7 @@ public class ScentDetection : MonoBehaviour {
     private void FixedUpdate() {
         if (foundSource) {
             // Wat moet er gebeuren als de bron is gevonden?
-            transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, scentSource.position, movementSpeed);
         } else {
             // Store old rotation from the start of the frame
             //Quaternion oldRotation = transform.rotation;
@@ -39,6 +39,8 @@ public class ScentDetection : MonoBehaviour {
         Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
         if (other.name == ("Scent particle pool")) {
             destination = other.transform.position;
+
+            scentSource = other.transform;
             Debug.Log("Going to the scent's source");
             foundSource = true;
         } else if (other.name.Contains("Scent particle")) {
