@@ -12,6 +12,9 @@ public class ScentParticlePool : MonoBehaviour{
     [Range(.01f, 10f)]
     [SerializeField] private float startSpeed = 1f;
 
+    [Range(.5f, 10f)]
+    [SerializeField] private float setParticleLifetime = 1f;
+
     [SerializeField] private List<Transform> scentParticlePool;
 
     private float particleLifetime = 5f;
@@ -20,7 +23,7 @@ public class ScentParticlePool : MonoBehaviour{
 
     private Vector3 spawnPos;
 
-    DespawnAfterSeconds GetDespawnAfterSeconds;
+    Despawn GetDespawn;
 
     private void Awake() {
         // Collect all ScentParticles in the pool, and exclude the pool object itself.
@@ -57,25 +60,41 @@ public class ScentParticlePool : MonoBehaviour{
 
     void Start() {
         spawnPos = transform.position;
-        StartCoroutine(spawnObjectPool());
+        StartCoroutine(SpawnObjectPool());
     }
 
     private void Update() {
-        particleLifetime = scentParticlePool.Count / particleIntervalSeconds;
+        // The particle lifetime cannot be longer than the time it takes to cycle through the list, because the pool will run out of objects to spawn. 
+        // So the particle lifetime will always have to be equal to, or shorter than the time it takes to cycle through the list
+        if (scentParticlePool.Count/particleIntervalSeconds > setParticleLifetime) {
+            particleLifetime = scentParticlePool.Count / particleIntervalSeconds;
+        } else {
+            particleLifetime = setParticleLifetime;
+        }
     }
 
-    private IEnumerator spawnObjectPool() {
+
+    private void OnTriggerEnter(Collider other) {
+        //Debug.Log("Colliding with " + other.name);
+        if (other.name == "Wind") {
+            Debug.Log("HECK YEA IT'S REGISTERING");
+        } else {
+            //Debug.Log("FUCK IT'S NOT REGISTERING");
+        }
+    }
+
+    private IEnumerator SpawnObjectPool() {
         // Spawn an object from the pool at the scent object's position
         // DEZE MOET ELKE KEER OPNIEUW KIJKEN NAAR SNELHEID EN DE LENGTE VAN DE LIJST, EN JUIST OPVULLEN, 
         // OP HET MOMENT WORDEN SOMMIGE OBJECTEN NIET MEER AANGESPROKEN TERWIJL DAT WEL ZOU MOETEN
+        GetDespawn = scentParticlePool[iterator].GetComponent<Despawn>();
         scentParticlePool[iterator].gameObject.SetActive(true);
-        GetDespawnAfterSeconds = scentParticlePool[iterator].GetComponent<DespawnAfterSeconds>();
 
-        StartCoroutine(GetDespawnAfterSeconds.WaitBeforeDespawn(scentParticlePool[iterator].gameObject, particleLifetime));
-
+        StartCoroutine(GetDespawn.DespawnAfter(particleLifetime, scentParticlePool[iterator].gameObject));
 
 
-        Vector3 spawnPosTurbulence = new Vector3(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
+
+        Vector3 spawnPosTurbulence = new Vector3(Random.Range(-.5f, .5f), .6f);
         UpdateSpawnPos();
         scentParticlePool[iterator].position = spawnPos + spawnPosTurbulence;
 
@@ -89,12 +108,13 @@ public class ScentParticlePool : MonoBehaviour{
 
         iterator++;
         Debug.Log(iterator + " / " + scentParticlePool.Count);
-        if (iterator >= scentParticlePool.Count - 1) {
+        if (iterator >= scentParticlePool.Count) {
             iterator = 0;
         }
         yield return new WaitForSeconds(particleIntervalSeconds);
 
-        StartCoroutine(spawnObjectPool());
+        // Repeat this coroutine
+        StartCoroutine(SpawnObjectPool());
     }
 
     private void UpdateSpawnPos() {

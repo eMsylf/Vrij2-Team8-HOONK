@@ -22,7 +22,9 @@ public class Wind_Script : MonoBehaviour {
     }
 
     private void OnTriggerStay(Collider other) {
-
+        if (other.attachedRigidbody == null) {
+            return;
+        }
         distanceFromFan = Vector3.Distance(gameObject.transform.position, other.transform.position);
 
         // The wind strength will get weaker, the larger the distance. 1/distance as multiplier?
@@ -31,6 +33,7 @@ public class Wind_Script : MonoBehaviour {
 
         //Debug.Log("Object in wind zone: " + other.name + " || Force applied: " + appliedForce);
 
+        
         other.attachedRigidbody.AddForce(Vector3.forward * windStrength * (1/distanceFromFan));
     }
 

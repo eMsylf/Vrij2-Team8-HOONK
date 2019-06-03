@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class DespawnAfterSeconds : MonoBehaviour {
+public class Despawn : MonoBehaviour {
     private Vector3 startingPosition;
     private bool hasDespawned = true;
     private Rigidbody objectRigidbody;
@@ -15,9 +15,11 @@ public class DespawnAfterSeconds : MonoBehaviour {
     }
     
     void Update() {
+
     }
 
-    public IEnumerator WaitBeforeDespawn(GameObject _object, float _seconds) {
+
+    public IEnumerator DespawnAfter(float _seconds, GameObject _object) {
         hasDespawned = false;
         Debug.Log("Waiting before despawn...");
 
@@ -25,13 +27,13 @@ public class DespawnAfterSeconds : MonoBehaviour {
 
         Debug.Log(gameObject.name + " despawning.");
         hasDespawned = true;
-        Despawn(_object);
+        DespawnThis(_object);
     }
 
     /// <summary>
     /// Removes all force-induced motion and deactivates the object.
     /// </summary>
-    public void Despawn() {
+    public void DespawnThis() {
         objectRigidbody.isKinematic = true;
         objectRigidbody.isKinematic = false;
         gameObject.SetActive(false);
@@ -40,7 +42,7 @@ public class DespawnAfterSeconds : MonoBehaviour {
     /// <summary>
     /// Removes all force-induced motion and deactivates the specified object.
     /// </summary>
-    public void Despawn(GameObject _object) {
+    public void DespawnThis(GameObject _object) {
         objectRigidbody.isKinematic = true;
         _object.SetActive(false);
     }
