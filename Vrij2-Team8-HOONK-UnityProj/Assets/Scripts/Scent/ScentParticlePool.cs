@@ -26,6 +26,10 @@ public class ScentParticlePool : MonoBehaviour{
     Despawn GetDespawn;
 
     private void Awake() {
+        if (scentParticlePool == null) {
+            scentParticlePrefab = gameObject;
+        }
+
         // Collect all ScentParticles in the pool, and exclude the pool object itself.
         foreach (Transform scentTransform in GetComponentsInChildren<Transform>()) {
             if (scentTransform != transform) {

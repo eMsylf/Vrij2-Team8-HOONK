@@ -23,14 +23,16 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Movement() {
-        rigidbody_Player.position += transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * MovementSpeed;
+        if (Input.GetAxis("Vertical") > 0)
+        rigidbody_Player.AddForce(transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * MovementSpeed);
     }
 
     private void Rotation() {
         rotation = Input.GetAxis("Horizontal") * RotationSpeed;
-        if (Input.GetAxis("Vertical") < 0) {
-            rotation *= -1;
-        }
+        
+        //if (Input.GetAxis("Vertical") < 0) {
+        //    rotation *= -1;
+        //}
         m_EulerAngleVelocity = new Vector3(0, rotation, 0);
         Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
         rigidbody_Player.MoveRotation(rigidbody_Player.rotation * deltaRotation);
