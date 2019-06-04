@@ -15,6 +15,29 @@ MonoBehaviour:
   components:
   - {fileID: 114646304871601786}
   - {fileID: 114407377276160918}
+  - {fileID: 114318560678382438}
+--- !u!114 &114318560678382438
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4910d90e50201484ba448b791a192696, type: 3}
+  m_Name: VolumetricLightingController
+  m_EditorClassIdentifier: 
+  active: 1
+  depthExtent:
+    m_OverrideState: 0
+    m_Value: 64
+    min: 0.1
+  sliceDistributionUniformity:
+    m_OverrideState: 0
+    m_Value: 0.75
+    min: 0
+    max: 1
 --- !u!114 &114407377276160918
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -62,19 +85,19 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0, b: 0.07366419, a: 1}
+    m_Value: {r: 0.13095997, g: 0.039831147, b: 0.04707317, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   middle:
     m_OverrideState: 1
-    m_Value: {r: 0.6320754, g: 0.15205587, b: 0.15205587, a: 1}
+    m_Value: {r: 0.09246674, g: 0.022065926, b: 0.022065926, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   bottom:
     m_OverrideState: 1
-    m_Value: {r: 0.16037738, g: 0, b: 0, a: 1}
+    m_Value: {r: 0.063, g: 0, b: 0, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
