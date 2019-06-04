@@ -8,8 +8,8 @@ public class CameraFollow : MonoBehaviour {
     [SerializeField] private Transform MainCamera;
     public Transform CameraMountOuter;
     public Transform CameraMountInner;
-    public Transform MountFollowsThisObject;
-    public Transform CameraLooksAtThisObject;
+    public Transform MountFollowsThis;
+    public Transform CameraLooksAtThis;
 
     [Range(1f, 20f)]
     public float CameraDistance = 3f;
@@ -52,8 +52,8 @@ public class CameraFollow : MonoBehaviour {
 
     private void SetCameraMountPosition() {
         // Set Camera Mount position
-        desiredPosition.x = MountFollowsThisObject.position.x;
-        desiredPosition.z = MountFollowsThisObject.position.z;
+        desiredPosition.x = MountFollowsThis.position.x;
+        desiredPosition.z = MountFollowsThis.position.z;
         desiredPosition.y = CameraMountOuter.position.y;
         smoothedPosition = Vector3.Lerp(CameraMountOuter.position, desiredPosition, smoothSpeed);
         CameraMountOuter.position = smoothedPosition;
@@ -66,7 +66,7 @@ public class CameraFollow : MonoBehaviour {
 
     private void SetCameraLook() {
         // Camera looks at the target
-        MainCamera.LookAt(CameraLooksAtThisObject);
+        MainCamera.LookAt(CameraLooksAtThis);
         //if (EnableLookAt) transform.LookAt(LookTarget);
     }
 }

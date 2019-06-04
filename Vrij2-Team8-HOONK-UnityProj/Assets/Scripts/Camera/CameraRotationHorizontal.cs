@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraRotationHorizontal : MonoBehaviour {
-    [SerializeField] private float cameraRotationY;
-
     [SerializeField] private float rotationSpeed = 1f;
     [Range(.1f, .9f)]
     [SerializeField] private float rotationSmoothing = .9f;
+    private float cameraRotationY;
 
     void Start() {
         cameraRotationY = 0f;
@@ -21,6 +20,4 @@ public class CameraRotationHorizontal : MonoBehaviour {
             );
         transform.Rotate(0f, cameraRotationY, 0f, Space.Self);
     }
-
-
 }
