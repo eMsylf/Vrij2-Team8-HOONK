@@ -36,7 +36,7 @@ public class ScentDetection : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
+        //Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
         if (other.name == ("Scent particle pool")) {
             destination = other.transform.position;
 

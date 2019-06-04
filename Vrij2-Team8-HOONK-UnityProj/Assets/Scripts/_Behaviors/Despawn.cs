@@ -21,11 +21,11 @@ public class Despawn : MonoBehaviour {
 
     public IEnumerator DespawnAfter(float _seconds, GameObject _object) {
         hasDespawned = false;
-        Debug.Log("Waiting before despawn...");
+        //Debug.Log("Waiting before despawn...");
 
         yield return new WaitForSeconds(_seconds);
 
-        Debug.Log(gameObject.name + " despawning.");
+        //Debug.Log(gameObject.name + " despawning.");
         hasDespawned = true;
         DespawnThis(_object);
     }

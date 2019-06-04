@@ -107,7 +107,7 @@ public class ScentParticlePool : MonoBehaviour{
         particle_rb.AddForce(startSpeed, 0f, 0f, ForceMode.VelocityChange);
 
         iterator++;
-        Debug.Log(iterator + " / " + scentParticlePool.Count);
+        //Debug.Log(iterator + " / " + scentParticlePool.Count);
         if (iterator >= scentParticlePool.Count) {
             iterator = 0;
         }
