@@ -16,15 +16,16 @@ MonoBehaviour:
   HasSourceProject: 1
   HasPlatforms: 1
   sourceProjectPath: D:\School\HKU\jaar 2\Periode 4\Vrij\Unity\Vrij2-Team8-HOONK\Vrij2-Team8-HOONK-UnityProj\Assets\Fmod
-    Project\Sense_Testfspro\Sense_Testfspro.fspro
-  SourceProjectPathUnformatted: Assets\Fmod Project\Sense_Testfspro\Sense_Testfspro.fspro
-  SourceBankPathUnformatted: Assets\Fmod Project\Sense_Testfspro\Build
+    Project\Sense V1.0\Sense V1.0.fspro
+  SourceProjectPathUnformatted: Assets\Fmod Project\Sense V1.0\Sense V1.0.fspro
+  SourceBankPathUnformatted: Assets\Fmod Project\Sense V1.0\Build
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
   EncryptionKey: 
   ImportType: 0
-  TargetAssetPath: 
+  TargetAssetPath: D:\School\HKU\jaar 2\Periode 4\Vrij\Unity\Vrij2-Team8-HOONK\Vrij2-Team8-HOONK-UnityProj\Assets\Fmod
+    Project\Sense V1.0
   LoggingLevel: 2
   SpeakerModeSettings:
   - Platform: 2
@@ -78,10 +79,7 @@ MonoBehaviour:
     Value: 32
   Plugins: []
   MasterBanks:
-  - MasterA
-  Banks:
-  - Ambiance
   - Master
-  - Soundtrack
+  Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
