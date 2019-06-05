@@ -17,7 +17,7 @@ public class FanRotation : MonoBehaviour {
     public IEnumerator Ayylmao() {
         yield return new WaitForSeconds(rotationDelay);
         transform.Rotate(0f, rotationAmount, 0f);
-        Debug.Log("<b>AAAAAAAAAAAAAAAAAAAAAAAAAA</b>");
+        //Debug.Log("<b>AAAAAAAAAAAAAAAAAAAAAAAAAA</b>");
         // Repeat
         StartCoroutine(Ayylmao());
     }
