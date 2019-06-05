@@ -15,9 +15,10 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense_Testfspro\Sense_Testfspro.fspro
-  SourceProjectPathUnformatted: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense_Testfspro\Sense_Testfspro.fspro
-  SourceBankPathUnformatted: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense_Testfspro\Build
+  sourceProjectPath: D:\School\HKU\jaar 2\Periode 4\Vrij\Unity\Vrij2-Team8-HOONK\Vrij2-Team8-HOONK-UnityProj\Assets\Fmod
+    Project\Sense_Testfspro\Sense_Testfspro.fspro
+  SourceProjectPathUnformatted: Assets\Fmod Project\Sense_Testfspro\Sense_Testfspro.fspro
+  SourceBankPathUnformatted: Assets\Fmod Project\Sense_Testfspro\Build
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
