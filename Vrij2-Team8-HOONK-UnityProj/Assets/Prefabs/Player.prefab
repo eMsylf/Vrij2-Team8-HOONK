@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488823938578b134ab24c846463f2f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  artTransform: {fileID: 604902946}
   maxInteractionRange: 3
   pickupHoldDistance: 3
 --- !u!1 &3650498265861114973

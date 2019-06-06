@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectInteraction : MonoBehaviour {
 
+    [SerializeField] private Transform artTransform;
     [Range(0f, 10f)]
     [SerializeField] private float maxInteractionRange = 2f;
     [Range(1f, 3f)]
@@ -29,36 +30,41 @@ public class ObjectInteraction : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        Physics.Raycast(new Ray(transform.position, transform.forward), out hitInfo, maxInteractionRange);
+        Physics.Raycast(new Ray(artTransform.position, artTransform.forward), out hitInfo, maxInteractionRange);
 
-        if (hitInfo.transform != null) {
-            if (hitInfo.transform.GetComponent<PickupObject>() != null) {
+        if (pickup != null) {
+            if (Input.GetKeyDown(a)) {
+                DropObject();
+            }
 
-                if (Input.GetKeyDown(a)) {
-                    if (pickup == null) {
-                        PickupObject();
-                    } else if (pickup != null) {
-                        DropObject();
+            if (Input.GetKey(KeyCode.Joystick1Button4)) {
+                Debug.Log("L1, turn object LEFT");
+
+            }
+            if (Input.GetKey(KeyCode.Joystick1Button5)) {
+                Debug.Log("R1, turn object RIGHT");
+            }
+        }
+        else if (pickup == null) {
+            if (Input.GetKeyDown(a)) {
+                if (hitInfo.transform != null) {
+                    if (hitInfo.transform.GetComponent<PickupObject>() != null) {
+                        if (Input.GetKeyDown(a)) {
+                            PickupObject();
+                        }
                     }
                 }
             }
-        }
-
-        if (Input.GetKey(KeyCode.Joystick1Button4)) {
-            Debug.Log("L1");
-        }
-        if (Input.GetKey(KeyCode.Joystick1Button5)) {
-            Debug.Log("R1");
         }
     }
 
     private void PickupObject() {
         Debug.Log("Pickup " + hitInfo.transform.name);
         pickup = hitInfo.transform;
-        pickup.transform.position = transform.position + transform.forward * pickupHoldDistance;
+        pickup.transform.position = artTransform.position + artTransform.forward * pickupHoldDistance;
         pickup.GetComponent<Rigidbody>().isKinematic = true;
 
-        pickup.SetParent(transform);
+        pickup.SetParent(artTransform);
     }
 
     private void DropObject() {
