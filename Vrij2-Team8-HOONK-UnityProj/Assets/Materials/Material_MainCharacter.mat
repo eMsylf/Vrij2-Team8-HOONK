@@ -10,7 +10,7 @@ Material:
   m_Name: Material_MainCharacter
   m_Shader: {fileID: 4800000, guid: dc2b3541f48c22d4fa17effa1f38aa84, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _DETAIL_MULX2 _EMISSION _NORMALMAP
-  m_LightmapFlags: 1
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
