@@ -96,18 +96,19 @@ public class ScentParticlePool : MonoBehaviour{
 
         StartCoroutine(GetDespawn.DespawnAfter(particleLifetime, scentParticlePool[iterator].gameObject));
 
+        Rigidbody particle_rb = scentParticlePool[iterator].GetComponent<Rigidbody>();
 
-
+        // Spawn particle slightly above the object
         Vector3 spawnPosTurbulence = new Vector3(Random.Range(-.5f, .5f), .6f);
         UpdateSpawnPos();
         scentParticlePool[iterator].position = spawnPos + spawnPosTurbulence;
 
+        // Reset particle speed ANOTHER TIME because it won't work in the object's script itself
+        particle_rb.velocity = Vector3.zero;
 
         // Give the particle speed
         // THIS SHOULD BE INHERITED FROM THE WIND HITBOX
-        Rigidbody particle_rb = scentParticlePool[iterator].GetComponent<Rigidbody>();
 
-        particle_rb.isKinematic = false;
         particle_rb.AddForce(startSpeed, 0f, 0f, ForceMode.VelocityChange);
 
         iterator++;
