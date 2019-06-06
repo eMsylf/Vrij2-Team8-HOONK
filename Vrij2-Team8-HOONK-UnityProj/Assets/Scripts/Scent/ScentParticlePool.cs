@@ -109,7 +109,9 @@ public class ScentParticlePool : MonoBehaviour{
         // Give the particle speed
         // THIS SHOULD BE INHERITED FROM THE WIND HITBOX
 
+        Debug.Log("1: " + particle_rb.velocity);
         particle_rb.AddForce(startSpeed, 0f, 0f, ForceMode.VelocityChange);
+        Debug.Log("2: " + particle_rb.velocity);
 
         iterator++;
         //Debug.Log(iterator + " / " + scentParticlePool.Count);
