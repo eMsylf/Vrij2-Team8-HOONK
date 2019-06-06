@@ -97,7 +97,22 @@ ModelImporter:
     4300012: pasted__pCube93
     4300014: pasted__pCube101
     4300016: pasted__pCube102
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Screw
+    second: {fileID: 2100000, guid: fe73314a8cf010345b8a97d934565d7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WireTexture
+    second: {fileID: 2100000, guid: fe73314a8cf010345b8a97d934565d7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert5
+    second: {fileID: 2100000, guid: fe73314a8cf010345b8a97d934565d7a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

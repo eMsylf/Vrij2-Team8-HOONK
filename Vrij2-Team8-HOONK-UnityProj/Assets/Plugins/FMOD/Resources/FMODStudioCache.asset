@@ -13,21 +13,17 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114256706914409568}
-  - {fileID: 114688112732124984}
-  - {fileID: 114494514998883446}
-  - {fileID: 114421471590308414}
-  - {fileID: 114141497677389442}
+  - {fileID: 114919673041327870}
+  - {fileID: 114509360192921670}
   EditorEvents:
-  - {fileID: 114522921378506800}
-  - {fileID: 114430980569500776}
-  - {fileID: 114419797090953076}
+  - {fileID: 114912547676591802}
+  - {fileID: 114403999039708842}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114421471590308414}
+  - {fileID: 114509360192921670}
   StringsBanks:
-  - {fileID: 114256706914409568}
-  stringsBankWriteTime: 636951963998151295
+  - {fileID: 114919673041327870}
+  stringsBankWriteTime: 636953313993997914
   cacheVersion: 3
 --- !u!114 &114141497677389442
 MonoBehaviour:
@@ -69,7 +65,30 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1114
   Exists: 1
---- !u!114 &114419797090953076
+--- !u!114 &114335627899181166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Background Music/SoundTrack
+  m_EditorClassIdentifier: 
+  Path: event:/Background Music/SoundTrack
+  guid: a50ab04585bf2a409ee09fa348f80060
+  Banks: []
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114981460311161556}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 28000
+--- !u!114 &114403999039708842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,8 +103,30 @@ MonoBehaviour:
   Path: event:/Music/SoundTrack
   guid: a50ab04585bf2a409ee09fa348f80060
   Banks:
-  - {fileID: 114421471590308414}
-  - {fileID: 114141497677389442}
+  - {fileID: 114509360192921670}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114690838824514698}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 28000
+--- !u!114 &114419797090953076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/SoundTrack
+  m_EditorClassIdentifier: 
+  Path: event:/Music/SoundTrack
+  guid: a50ab04585bf2a409ee09fa348f80060
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -128,8 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Ambience/Ventilator
   guid: 7631619cf06ac54293095f519e4182d8
-  Banks:
-  - {fileID: 114688112732124984}
+  Banks: []
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -174,6 +214,27 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &114509360192921670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: D:\School\HKU\jaar 2\Periode 4\Vrij\Unity\Vrij2-Team8-HOONK\Vrij2-Team8-HOONK-UnityProj\Assets\Fmod
+    Project\Sense V1.0\Build\Desktop\Master.bank
+  SubDir: 
+  lastModified: 636953313993967671
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1848224
+  Exists: 1
 --- !u!114 &114522921378506800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Ambience/Backgroundnoice - Afzuiger
   guid: 4898fde57ee89540a9a9c3c0d0e16721
-  Banks:
-  - {fileID: 114688112732124984}
+  Banks: []
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -197,6 +257,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 64000
+--- !u!114 &114681845188395382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Soundtrack.bank
+  m_EditorClassIdentifier: 
+  Path: D:\School\HKU\jaar 2\Periode 4\Vrij\Unity\Vrij2-Team8-HOONK\Vrij2-Team8-HOONK-UnityProj\Assets\Fmod
+    Project\Sense V1.0\Build\Desktop\Soundtrack.bank
+  SubDir: 
+  lastModified: 636951958942321975
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1847712
+  Exists: 0
 --- !u!114 &114688112732124984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +298,61 @@ MonoBehaviour:
   - Name: Desktop
     Value: 2232224
   Exists: 1
+--- !u!114 &114690838824514698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SoundTrack/PartSelector
+  m_EditorClassIdentifier: 
+  Name: PartSelector
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &114813938975465114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambiance.bank
+  m_EditorClassIdentifier: 
+  Path: D:\School\HKU\jaar 2\Periode 4\Vrij\Unity\Vrij2-Team8-HOONK\Vrij2-Team8-HOONK-UnityProj\Assets\Fmod
+    Project\Sense V1.0\Build\Desktop\Ambiance.bank
+  SubDir: 
+  lastModified: 636951958922777315
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 2232224
+  Exists: 0
+--- !u!114 &114824994731512908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SoundTrack/PartSelector
+  m_EditorClassIdentifier: 
+  Name: PartSelector
+  Min: 0
+  Max: 3
+  Default: 0
+  Exists: 0
 --- !u!114 &114875659940391950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,3 +370,64 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &114912547676591802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: 
+  guid: 7631619cf06ac54293095f519e4182d8
+  Banks:
+  - {fileID: 114813938975465114}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 32000
+--- !u!114 &114919673041327870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: D:\School\HKU\jaar 2\Periode 4\Vrij\Unity\Vrij2-Team8-HOONK\Vrij2-Team8-HOONK-UnityProj\Assets\Fmod
+    Project\Sense V1.0\Build\Desktop\Master.strings.bank
+  SubDir: 
+  lastModified: 636953313993997914
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 848
+  Exists: 1
+--- !u!114 &114981460311161556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SoundTrack/PartSelector
+  m_EditorClassIdentifier: 
+  Name: PartSelector
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
