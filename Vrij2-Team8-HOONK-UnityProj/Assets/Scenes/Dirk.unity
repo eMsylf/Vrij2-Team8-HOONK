@@ -6022,60 +6022,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 90.00001}
---- !u!1 &130849251
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 130849253}
-  - component: {fileID: 130849252}
-  m_Layer: 0
-  m_Name: Soundtrack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &130849252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130849251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Music/SoundTrack
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
---- !u!4 &130849253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130849251}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 336.52914, y: 21.891861, z: 116.57131}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 109
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &172767199
 GameObject:
   m_ObjectHideFlags: 0
@@ -7854,7 +7800,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 690006447}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 230, z: -230}
 --- !u!199 &467345631
 ParticleSystemRenderer:
@@ -36229,11 +36175,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3650498265461417905, guid: 243f53fdea80ed24398cd14e3950c2fb,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3650498264287753458, guid: 243f53fdea80ed24398cd14e3950c2fb,
         type: 3}
       propertyPath: m_Intensity
@@ -36243,6 +36184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LightShadowCasterMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650498265461417905, guid: 243f53fdea80ed24398cd14e3950c2fb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 243f53fdea80ed24398cd14e3950c2fb, type: 3}
@@ -37996,11 +37942,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3684948158013902568, guid: 29ba390f1e20fe248ad576483986ef44,
-        type: 3}
-      propertyPath: m_Name
-      value: Vloer_Hout
-      objectReference: {fileID: 0}
     - target: {fileID: 3684948158013902564, guid: 29ba390f1e20fe248ad576483986ef44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38055,6 +37996,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684948158013902568, guid: 29ba390f1e20fe248ad576483986ef44,
+        type: 3}
+      propertyPath: m_Name
+      value: Vloer_Hout
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29ba390f1e20fe248ad576483986ef44, type: 3}
@@ -38134,11 +38080,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5326982419783780695, guid: bd280484ff0d3ab4dad9dd8b710f6bdd,
-        type: 3}
-      propertyPath: m_Name
-      value: Vloerkleed
-      objectReference: {fileID: 0}
     - target: {fileID: 5326982419783780683, guid: bd280484ff0d3ab4dad9dd8b710f6bdd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38194,6 +38135,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5326982419783780695, guid: bd280484ff0d3ab4dad9dd8b710f6bdd,
+        type: 3}
+      propertyPath: m_Name
+      value: Vloerkleed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd280484ff0d3ab4dad9dd8b710f6bdd, type: 3}
 --- !u!1001 &6069243046408957557
@@ -38203,11 +38149,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6069243044997091687, guid: 20bbb71aa6f6d174287380fc5a9e8c63,
-        type: 3}
-      propertyPath: m_Name
-      value: Muur1
-      objectReference: {fileID: 0}
     - target: {fileID: 6069243044997091683, guid: 20bbb71aa6f6d174287380fc5a9e8c63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38263,6 +38204,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6069243044997091687, guid: 20bbb71aa6f6d174287380fc5a9e8c63,
+        type: 3}
+      propertyPath: m_Name
+      value: Muur1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20bbb71aa6f6d174287380fc5a9e8c63, type: 3}
 --- !u!1001 &6588384264590015453
@@ -38272,11 +38218,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6588384264021547263, guid: b033f80e15bed7f4593cabe37c282aec,
-        type: 3}
-      propertyPath: m_Name
-      value: Metal_Wall_V1
-      objectReference: {fileID: 0}
     - target: {fileID: 6588384264021547259, guid: b033f80e15bed7f4593cabe37c282aec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38332,6 +38273,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -270
       objectReference: {fileID: 0}
+    - target: {fileID: 6588384264021547263, guid: b033f80e15bed7f4593cabe37c282aec,
+        type: 3}
+      propertyPath: m_Name
+      value: Metal_Wall_V1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b033f80e15bed7f4593cabe37c282aec, type: 3}
 --- !u!1001 &6832148218823663364
@@ -38346,6 +38292,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muur_Raam
       objectReference: {fileID: 0}
+    - target: {fileID: 6832148218044544076, guid: 9f444610fc5242d46ba9f8055d1a23e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 32364ca0a9adede469169dd00116648d, type: 2}
     - target: {fileID: 6832148218044544078, guid: 9f444610fc5242d46ba9f8055d1a23e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38401,10 +38352,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6832148218044544076, guid: 9f444610fc5242d46ba9f8055d1a23e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 32364ca0a9adede469169dd00116648d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f444610fc5242d46ba9f8055d1a23e2, type: 3}
