@@ -21,11 +21,11 @@ public class Despawn : MonoBehaviour {
 
     public IEnumerator DespawnAfter(float _seconds, GameObject _object) {
         hasDespawned = false;
-        Debug.Log("Waiting before despawn...");
+        //Debug.Log("Waiting before despawn...");
 
         yield return new WaitForSeconds(_seconds);
 
-        Debug.Log(gameObject.name + " despawning.");
+        //Debug.Log(gameObject.name + " despawning.");
         hasDespawned = true;
         DespawnThis(_object);
     }
@@ -34,8 +34,6 @@ public class Despawn : MonoBehaviour {
     /// Removes all force-induced motion and deactivates the object.
     /// </summary>
     public void DespawnThis() {
-        objectRigidbody.isKinematic = true;
-        objectRigidbody.isKinematic = false;
         gameObject.SetActive(false);
     }
 
@@ -43,7 +41,6 @@ public class Despawn : MonoBehaviour {
     /// Removes all force-induced motion and deactivates the specified object.
     /// </summary>
     public void DespawnThis(GameObject _object) {
-        objectRigidbody.isKinematic = true;
         _object.SetActive(false);
     }
 }

@@ -36,7 +36,7 @@ public class ScentDetection : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
+        //Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
         if (other.name == ("Scent particle pool")) {
             destination = other.transform.position;
 
@@ -45,9 +45,9 @@ public class ScentDetection : MonoBehaviour {
             foundSource = true;
         } else if (other.name.Contains("Scent particle")) {
             destination = other.transform.position;
-            Debug.Log("Updated the destination position");
+            //Debug.Log("Updated the destination position");
         } else {
-            Debug.Log(gameObject.name + " - Non-scent object has entered smell range.");
+            //Debug.Log(gameObject.name + " - Non-scent object has entered smell range.");
         }
     }
 
