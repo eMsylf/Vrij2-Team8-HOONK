@@ -24,8 +24,8 @@ public class ObjectInteraction : MonoBehaviour {
     private Ray ray;
     private RaycastHit hitInfo;
 
-    [SerializeField] private Transform pickup;
-    [SerializeField] private Rigidbody pickup_rb;
+    private Transform pickup;
+    private Rigidbody pickup_rb;
 
     public bool isHoldingSomething;
 
@@ -50,8 +50,7 @@ public class ObjectInteraction : MonoBehaviour {
                 pickup.transform.Rotate(0, rotationAmount, 0);
                 Debug.Log("R1, turn object RIGHT");
             }
-        }
-        else if (pickup == null) {
+        } else if (pickup == null) {
             if (hitInfo.transform != null) {
                 if (hitInfo.transform.GetComponent<PickupObject>() != null) {
                     if (Input.GetKeyDown(a)) {

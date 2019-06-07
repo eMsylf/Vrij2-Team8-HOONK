@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScentDetection : MonoBehaviour {
 
-    [Range(.01f, .1f)]
+    [Range(.0f, .1f)]
     [SerializeField] private float movementSpeed = .01f;
 
 
@@ -29,13 +29,19 @@ public class ScentDetection : MonoBehaviour {
             // Store old rotation from the start of the frame
             //Quaternion oldRotation = transform.rotation;
 
-            transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed);
+            transform.position += transform.forward * movementSpeed;
+
             transform.LookAt(destination);
 
             LockXZRotations();
         }
     }
 
+    private void OnTriggerEnter(Collider other) {
+        //if (other.)
+    }
+
+    /*
     private void OnTriggerEnter(Collider other) {
         //Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
         if (other.name == ("Source")) {
@@ -51,6 +57,7 @@ public class ScentDetection : MonoBehaviour {
             //Debug.Log(gameObject.name + " - Non-scent object has entered smell range.");
         }
     }
+    */
 
     private void OnTriggerExit(Collider other) {
         if (other.transform == scentSource) {
