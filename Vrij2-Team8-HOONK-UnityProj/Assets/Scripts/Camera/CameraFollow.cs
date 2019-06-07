@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CameraFollow : MonoBehaviour {
+public class CameraFollow : MonoBehaviour
+{
     [SerializeField] private Transform MainCamera;
     public Transform CameraMount;
     public Transform MountFollowsThisObject;
     public Transform CameraLooksAtThisObject;
 
-    [Range(1f, 5f)]
+    [Range(1f, 50f)]
     public float CameraDistance = 3f;
     [Range(.1f, 1f)]
     public float smoothSpeed = .125f;
@@ -22,16 +23,21 @@ public class CameraFollow : MonoBehaviour {
 
     //public bool EnableLookAt;
 
-    private void Start() {
-        if (MainCamera == null && GetComponentInChildren<Camera>() != null) {
+    private void Start()
+    {
+        if (MainCamera == null && GetComponentInChildren<Camera>() != null)
+        {
             Debug.Log("Importing camera from children");
             MainCamera = GetComponentInChildren<Transform>();
-        } else {
+        }
+        else
+        {
             Debug.Log("Camera is already added, or there's no camera among this object's children");
         }
     }
 
-    private void OnValidate() {
+    private void OnValidate()
+    {
         SetCameraMountPosition();
 
         SetMainCameraPosition();
@@ -41,7 +47,8 @@ public class CameraFollow : MonoBehaviour {
         MainCamera.GetComponent<Camera>().nearClipPlane = CameraDistance * .25f;
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         SetCameraMountPosition();
 
         SetMainCameraPosition();
@@ -49,7 +56,8 @@ public class CameraFollow : MonoBehaviour {
         SetCameraLook();
     }
 
-    private void SetCameraMountPosition() {
+    private void SetCameraMountPosition()
+    {
         // Set Camera Mount position
         desiredPosition.x = MountFollowsThisObject.position.x;
         desiredPosition.z = MountFollowsThisObject.position.z;
@@ -58,12 +66,14 @@ public class CameraFollow : MonoBehaviour {
         CameraMount.position = smoothedPosition;
     }
 
-    private void SetMainCameraPosition() {
+    private void SetMainCameraPosition()
+    {
         // Set Main Camera position (above the target)
         MainCamera.position = CameraMount.position + CameraMount.up * CameraDistance;
     }
 
-    private void SetCameraLook() {
+    private void SetCameraLook()
+    {
         // Camera looks at the target
         MainCamera.LookAt(CameraLooksAtThisObject);
         //if (EnableLookAt) transform.LookAt(LookTarget);
