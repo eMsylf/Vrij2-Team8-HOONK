@@ -181,6 +181,7 @@ MonoBehaviour:
   rotationSpeed: 1
   rotationSmoothing: 0.4
   player: {fileID: 0}
+  playerArt: {fileID: 0}
   playerRotationSmoothing: 0
 --- !u!114 &4585123789953405885
 MonoBehaviour:

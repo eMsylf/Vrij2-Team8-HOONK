@@ -27,6 +27,8 @@ public class ObjectInteraction : MonoBehaviour {
     [SerializeField] private Transform pickup;
     [SerializeField] private Rigidbody pickup_rb;
 
+    public bool isHoldingSomething;
+
     void Start() {
 
     }
@@ -61,6 +63,8 @@ public class ObjectInteraction : MonoBehaviour {
     }
 
     private void PickupObject() {
+        isHoldingSomething = true;
+
         Debug.Log("Pickup " + hitInfo.transform.name);
         // Store variables
         pickup = hitInfo.transform;
@@ -68,14 +72,16 @@ public class ObjectInteraction : MonoBehaviour {
 
         // Move position to 
         pickup.transform.position = artTransform.position + artTransform.forward * pickupHoldDistance;
-        pickup.GetComponent<Rigidbody>().isKinematic = true;
+        pickup_rb.isKinematic = true;
 
         pickup.SetParent(artTransform);
     }
 
     private void DropObject() {
-        Debug.Log("Drop " + hitInfo.transform.name);
-        pickup.GetComponent<Rigidbody>().isKinematic = false;
+        isHoldingSomething = false;
+
+        Debug.Log("Drop " + pickup.name);
+        pickup_rb.isKinematic = false;
         pickup.SetParent(null);
         pickup = null;
     }

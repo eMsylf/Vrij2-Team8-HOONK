@@ -7,15 +7,21 @@ public class CameraRotationHorizontal : MonoBehaviour {
     [Range(.1f, .9f)]
     [SerializeField] private float rotationSmoothing = .9f;
     private float cameraRotationY;
-    [SerializeField]
-    private Transform player;
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform playerArt;
     private Quaternion storedRotation;
 
     [Range(.01f, 1f)]
     [SerializeField] private float playerRotationSmoothing = .8f;
 
+    private PlayerMovement PlayerMovement;
+    private ObjectInteraction ObjectInteraction;
+
     void Start() {
         cameraRotationY = 0f;
+
+        PlayerMovement = player.GetComponent<PlayerMovement>();
+        ObjectInteraction = player.GetComponent<ObjectInteraction>();
     }
 
     void FixedUpdate() {
@@ -29,12 +35,11 @@ public class CameraRotationHorizontal : MonoBehaviour {
         Vector3 forwardDirectionCamera = Vector3.Scale(transform.forward, new Vector3(1, 0, 1));
 
         if (Input.GetAxis("Vertical") == 0f && Input.GetAxis("Horizontal") == 0f) {
-            player.rotation = storedRotation;
+            playerArt.rotation = storedRotation;
         } else {
-            player.rotation = Quaternion.Lerp(storedRotation, Quaternion.LookRotation(forwardDirectionCamera * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")), playerRotationSmoothing);
-            StoreLookRotation(player.rotation);
+            playerArt.rotation = Quaternion.Lerp(storedRotation, Quaternion.LookRotation(forwardDirectionCamera * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")), playerRotationSmoothing * PlayerMovement.isHoldingRotationChange);
+            StoreLookRotation(playerArt.rotation);
         }
-
     }
 
     private void StoreLookRotation(Quaternion quaternion) {

@@ -6,7 +6,7 @@ public class ScentParticlePool : MonoBehaviour{
 
     [SerializeField] private GameObject scentParticlePrefab;
 
-    [Range(.01f, 5f)]
+    [Range(.01f, 1f)]
     [SerializeField] private float particleIntervalSeconds = 1f;
 
     [Range(.01f, 10f)]

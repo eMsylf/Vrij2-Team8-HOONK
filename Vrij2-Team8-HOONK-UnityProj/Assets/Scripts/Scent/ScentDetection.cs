@@ -23,21 +23,22 @@ public class ScentDetection : MonoBehaviour {
         if (foundSource) {
             // Wat moet er gebeuren als de bron is gevonden?
             transform.position = Vector3.MoveTowards(transform.position, scentSource.position, movementSpeed);
+            transform.LookAt(scentSource);
+            LockXZRotations();
         } else {
             // Store old rotation from the start of the frame
             //Quaternion oldRotation = transform.rotation;
 
             transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed);
             transform.LookAt(destination);
-            // Keep x and z rotations at 0
-            Quaternion newRotation = transform.rotation;
-            transform.rotation = new Quaternion(0, newRotation.y, 0, newRotation.w);
+
+            LockXZRotations();
         }
     }
 
     private void OnTriggerEnter(Collider other) {
         //Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
-        if (other.name == ("Scent particle pool")) {
+        if (other.name == ("Source")) {
             destination = other.transform.position;
 
             scentSource = other.transform;
@@ -52,8 +53,9 @@ public class ScentDetection : MonoBehaviour {
     }
 
     private void OnTriggerExit(Collider other) {
-        if (other.name.Contains("Scent particle pool")) {
+        if (other.transform == scentSource) {
             destinationTransform = transform;
+            Debug.Log("Scent source has left range.");
             Debug.Log("Updated the destination position to self");
             foundSource = false;
         }
@@ -61,5 +63,11 @@ public class ScentDetection : MonoBehaviour {
 
     private void MoveFromTo(Vector3 currentPosition, Vector3 destination) {
         Vector3.Lerp(currentPosition, destination, movementSpeed);
+    }
+
+    private void LockXZRotations() {
+        // Keep x and z rotations at 0
+        Quaternion newRotation = transform.rotation;
+        transform.rotation = new Quaternion(0, newRotation.y, 0, newRotation.w);
     }
 }
