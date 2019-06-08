@@ -7,11 +7,13 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform MainCamera;
-    public Transform CameraMount;
-    public Transform MountFollowsThisObject;
-    public Transform CameraLooksAtThisObject;
+    public Transform CameraMountOuter;
+    public Transform CameraMountInner;
+    public Transform MountFollowsThis;
+    public Transform CameraLooksAtThis;
 
-    [Range(1f, 50f)]
+
+    [Range(1f, 20f)]
     public float CameraDistance = 3f;
     [Range(.1f, 1f)]
     public float smoothSpeed = .125f;
@@ -59,23 +61,23 @@ public class CameraFollow : MonoBehaviour
     private void SetCameraMountPosition()
     {
         // Set Camera Mount position
-        desiredPosition.x = MountFollowsThisObject.position.x;
-        desiredPosition.z = MountFollowsThisObject.position.z;
-        desiredPosition.y = CameraMount.position.y;
-        smoothedPosition = Vector3.Lerp(CameraMount.position, desiredPosition, smoothSpeed);
-        CameraMount.position = smoothedPosition;
+        desiredPosition.x = MountFollowsThis.position.x;
+        desiredPosition.z = MountFollowsThis.position.z;
+        desiredPosition.y = CameraMountOuter.position.y;
+        smoothedPosition = Vector3.Lerp(CameraMountOuter.position, desiredPosition, smoothSpeed);
+        CameraMountOuter.position = smoothedPosition;
     }
 
     private void SetMainCameraPosition()
     {
         // Set Main Camera position (above the target)
-        MainCamera.position = CameraMount.position + CameraMount.up * CameraDistance;
+        MainCamera.position = CameraMountInner.position + CameraMountInner.up * CameraDistance;
     }
 
     private void SetCameraLook()
     {
         // Camera looks at the target
-        MainCamera.LookAt(CameraLooksAtThisObject);
+        MainCamera.LookAt(CameraLooksAtThis);
         //if (EnableLookAt) transform.LookAt(LookTarget);
     }
 }
