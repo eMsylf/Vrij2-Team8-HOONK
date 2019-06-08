@@ -13,14 +13,23 @@ EditorBuildSettings:
     guid: d56578bfb0aedf24ab972c4eac6736ba
   - enabled: 0
     path: 
-    guid: eaae36cf5c21ab7459b79bfc89196792
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Controls.unity
     guid: 947dc70c6aecef24680ba816c678bba9
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: db96809735db49642b6f7aebb8e33ace
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/Level2.unity
     guid: c1bf14b226aca064f8e4bcf8d926dc46
+  - enabled: 1
+    path: Assets/Scenes/Huis.unity
+    guid: b8e5efd2be4738f41b832f6fe1132cf7
+  - enabled: 1
+    path: Assets/Scenes/Puzzel.unity
+    guid: f2559b25eab51f246beee109db0b5def
+  - enabled: 1
+    path: Assets/Scenes/CompRoom.unity
+    guid: 219325c60d69bdf4f927fcb795066885
   m_configObjects: {}
