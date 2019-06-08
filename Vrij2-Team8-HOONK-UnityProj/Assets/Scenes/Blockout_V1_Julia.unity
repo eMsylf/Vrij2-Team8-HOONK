@@ -11760,6 +11760,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraMount
       objectReference: {fileID: 0}
+    - target: {fileID: 582428699834474494, guid: 9c9b57a49eff9a848a064a2dbf398afe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 582428699834474493, guid: 9c9b57a49eff9a848a064a2dbf398afe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21662,7 +21667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1480485276
 Light:
   m_ObjectHideFlags: 0
@@ -28379,6 +28384,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraMount_V3
       objectReference: {fileID: 0}
+    - target: {fileID: 7064905214914126351, guid: 00a36623c770af14688b4edb597240b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175481754147825583, guid: 00a36623c770af14688b4edb597240b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2547531105181334474, guid: 00a36623c770af14688b4edb597240b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28447,11 +28462,6 @@ PrefabInstance:
     - target: {fileID: 2017622790335764300, guid: 00a36623c770af14688b4edb597240b8,
         type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5175481754147825583, guid: 00a36623c770af14688b4edb597240b8,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
