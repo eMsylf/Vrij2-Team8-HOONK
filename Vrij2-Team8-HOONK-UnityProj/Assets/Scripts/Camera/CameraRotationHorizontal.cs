@@ -37,7 +37,10 @@ public class CameraRotationHorizontal : MonoBehaviour {
         if (Input.GetAxis("Vertical") == 0f && Input.GetAxis("HorizontalR") == 0f) {
             playerArt.rotation = storedRotation;
         } else {
-            playerArt.rotation = Quaternion.Lerp(storedRotation, Quaternion.LookRotation(forwardDirectionCamera * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("HorizontalR")), playerRotationSmoothing * PlayerMovement.isHoldingRotationChange);
+            playerArt.rotation = Quaternion.Lerp(
+                storedRotation, 
+                Quaternion.LookRotation(forwardDirectionCamera * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")), 
+                playerRotationSmoothing * PlayerMovement.isHoldingRotationChange);
             StoreLookRotation(playerArt.rotation);
         }
     }
