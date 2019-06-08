@@ -6,6 +6,8 @@ public class CameraIndicator : MonoBehaviour {
     public float IndicatorSize = .5f;
 
     public Camera MainCamera;
+    public CameraFollow CameraFollow;
+    public Transform InnerMount;
 
     private void OnDrawGizmos() {
         if (!ShowIndicator) {
@@ -13,8 +15,8 @@ public class CameraIndicator : MonoBehaviour {
         }
         Vector3 cubeSize = new Vector3(IndicatorSize, IndicatorSize, IndicatorSize);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, cubeSize);
-        Gizmos.DrawLine(transform.position, transform.position + transform.up * GetComponent<CameraFollow>().CameraDistance);
-        Gizmos.DrawWireSphere(transform.position + transform.up * GetComponent<CameraFollow>().CameraDistance, IndicatorSize);
+        Gizmos.DrawWireCube(InnerMount.position, cubeSize);
+        Gizmos.DrawLine(InnerMount.position, InnerMount.position + InnerMount.up * CameraFollow.CameraDistance);
+        Gizmos.DrawWireSphere(InnerMount.position + InnerMount.up * CameraFollow.CameraDistance, IndicatorSize);
     }
 }

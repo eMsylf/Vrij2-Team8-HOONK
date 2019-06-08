@@ -63,7 +63,11 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 1
+=======
+    textureCompression: 0
+>>>>>>> pre-master-NEW
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -74,7 +78,11 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 1
+=======
+    textureCompression: 0
+>>>>>>> pre-master-NEW
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +94,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD
     spriteID: 
+=======
+    spriteID: 5ae51a66859c8cc4fa96f17156ac56d6
+>>>>>>> pre-master-NEW
     vertices: []
     indices: 
     edges: []
