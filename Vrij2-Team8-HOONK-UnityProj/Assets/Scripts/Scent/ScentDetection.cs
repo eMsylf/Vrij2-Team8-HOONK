@@ -6,70 +6,82 @@ public class ScentDetection : MonoBehaviour {
 
     [Range(.0f, .1f)]
     [SerializeField] private float movementSpeed = .01f;
-
-
+    [Range(.001f, 1f)]
+    [SerializeField] private float turnSpeed = .2f;
+    [Range(.0f, 2f)]
+    [SerializeField] private float approachDistance = 1f;
+    [SerializeField] private Transform movementGoal;
     [SerializeField] private bool foundSource = false;
-    private Transform destinationTransform;
+    [SerializeField] private Transform scentSource;
+    [SerializeField] private Transform scentTransform;
 
-    private Transform scentSource;
-    private Vector3 destination;
 
     private void Start() {
-        destinationTransform = transform;
-        destination = destinationTransform.position;
+        foundSource = false;
+        scentTransform = transform;
+
+        movementGoal = Instantiate(movementGoal.gameObject).transform;
+        movementGoal.position = transform.position;
     }
 
     private void FixedUpdate() {
+        // Wat moet er gebeuren als de bron is gevonden?
+        // De robot moet de geurbron benaderen tot aan een bepaalde afstand
+        // Continuously update the movement goal to follow the scent source's position
         if (foundSource) {
-            // Wat moet er gebeuren als de bron is gevonden?
-            transform.position = Vector3.MoveTowards(transform.position, scentSource.position, movementSpeed);
-            transform.LookAt(scentSource);
-            LockXZRotations();
-        } else {
-            // Store old rotation from the start of the frame
-            //Quaternion oldRotation = transform.rotation;
-
-            transform.position += transform.forward * movementSpeed;
-
-            transform.LookAt(destination);
-
-            LockXZRotations();
+            movementGoal.position = scentSource.position;
         }
+        // Stop all movements if the source has been approached
+        if (Vector3.Distance(transform.position, movementGoal.position) < approachDistance) {
+            return;
+        }
+
+        // Store current rotation, before LookAt() is executed
+        Quaternion currentRotation = transform.rotation;
+
+        // Update desired rotation
+        transform.LookAt(movementGoal);
+        Quaternion desiredRotation = transform.rotation;
+
+        // Lerp between the current rotation and the desired rotation
+        transform.rotation = Quaternion.Lerp(currentRotation, desiredRotation, turnSpeed);
+        
+        LockXZRotations();
+        transform.position += transform.forward * movementSpeed;
     }
 
     private void OnTriggerEnter(Collider other) {
-        //if (other.)
-    }
-
-    /*
-    private void OnTriggerEnter(Collider other) {
-        //Debug.Log("<b>" + name + " is colliding with " + other.name + "</b>");
-        if (other.name == ("Source")) {
-            destination = other.transform.position;
-
-            scentSource = other.transform;
-            Debug.Log("Going to the scent's source");
+        if (foundSource) {
+            return;
+        }
+        if (other.GetComponent<ScentParticlePool>() != null) {
+            // Source has been found
             foundSource = true;
-        } else if (other.name.Contains("Scent particle")) {
-            destination = other.transform.position;
-            //Debug.Log("Updated the destination position");
-        } else {
-            //Debug.Log(gameObject.name + " - Non-scent object has entered smell range.");
+            // Store the transform so the robot can ignore other scent particles
+            scentSource = other.transform;
+
+            // Update movement goal position
+            movementGoal.position = scentSource.position;
+            
+        } else if (other.GetComponent<Scent>() != null) {
+            // Other scent particle has been found
+            scentTransform = other.transform;
+
+            // Update movement goal position
+            movementGoal.position = scentTransform.position;
         }
     }
-    */
 
     private void OnTriggerExit(Collider other) {
         if (other.transform == scentSource) {
-            destinationTransform = transform;
+            foundSource = false;
+            // Move to last remembered spot of where the scent source was.
+            scentTransform = other.transform;
+            movementGoal.position = scentTransform.position;
+
             Debug.Log("Scent source has left range.");
             Debug.Log("Updated the destination position to self");
-            foundSource = false;
         }
-    }
-
-    private void MoveFromTo(Vector3 currentPosition, Vector3 destination) {
-        Vector3.Lerp(currentPosition, destination, movementSpeed);
     }
 
     private void LockXZRotations() {
