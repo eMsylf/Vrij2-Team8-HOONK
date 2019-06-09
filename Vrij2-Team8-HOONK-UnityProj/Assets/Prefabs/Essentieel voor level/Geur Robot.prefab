@@ -140,9 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8dee12015df164486979e3f2eb64d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.0516
+  movementSpeed: 0.1
   turnSpeed: 0.059
-  approachDistance: 0.441
+  approachDistance: 0.63
   movementGoal: {fileID: 8634124084668343540, guid: 149fcf12b3957514795100e290bc49b1,
     type: 3}
 --- !u!136 &5960918086689554987
@@ -168,10 +168,10 @@ Rigidbody:
   m_GameObject: {fileID: 5960918086689554981}
   serializedVersion: 2
   m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 2.45
+  m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0

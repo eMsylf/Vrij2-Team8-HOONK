@@ -17,6 +17,8 @@ public class ScentDetection : MonoBehaviour {
     private bool foundPlayer = false;
     private Transform playerTransform;
 
+    private Rigidbody robot_rb;
+
 
     private void Start() {
         foundSource = false;
@@ -25,6 +27,8 @@ public class ScentDetection : MonoBehaviour {
 
         movementGoal = Instantiate(movementGoal.gameObject).transform;
         movementGoal.position = transform.position;
+
+        robot_rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate() {
@@ -52,7 +56,8 @@ public class ScentDetection : MonoBehaviour {
         transform.rotation = Quaternion.Lerp(currentRotation, desiredRotation, turnSpeed);
         
         LockXZRotations();
-        transform.position += transform.forward * movementSpeed;
+        robot_rb.AddForce(transform.forward * movementSpeed, ForceMode.VelocityChange);
+        //transform.position += transform.forward * movementSpeed;
     }
 
     private void OnTriggerEnter(Collider other) {

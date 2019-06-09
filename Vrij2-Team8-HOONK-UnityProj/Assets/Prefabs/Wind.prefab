@@ -105,4 +105,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e4d4e71fd5fb14ead9e48b95382d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 1
+  isBlowing: 0
+  windStrength: 0.2
