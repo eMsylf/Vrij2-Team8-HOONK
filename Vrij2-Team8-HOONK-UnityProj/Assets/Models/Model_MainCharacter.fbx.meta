@@ -60,21 +60,7 @@ ModelImporter:
     4300000: pasted__pCube53
     9500000: //RootNode
     13700000: pasted__pCube53
-<<<<<<< HEAD
   externalObjects: {}
-=======
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: 25265e105f9be9f4aa20d476b5c45fb5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert3
-    second: {fileID: 2100000, guid: 25265e105f9be9f4aa20d476b5c45fb5, type: 2}
->>>>>>> pre-master-NEW
   materials:
     importMaterials: 1
     materialName: 0
@@ -105,7 +91,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -126,11 +112,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-<<<<<<< HEAD
     previousCalculatedGlobalScale: 0.01
-=======
-    previousCalculatedGlobalScale: 1
->>>>>>> pre-master-NEW
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
