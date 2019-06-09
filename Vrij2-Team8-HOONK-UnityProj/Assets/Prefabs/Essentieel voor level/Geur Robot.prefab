@@ -140,14 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8dee12015df164486979e3f2eb64d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.055
-  turnSpeed: 0.246
-  approachDistance: 1.138
+  movementSpeed: 0.0516
+  turnSpeed: 0.059
+  approachDistance: 0.441
   movementGoal: {fileID: 8634124084668343540, guid: 149fcf12b3957514795100e290bc49b1,
     type: 3}
-  foundSource: 0
-  scentSource: {fileID: 0}
-  scentTransform: {fileID: 0}
 --- !u!136 &5960918086689554987
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -190,7 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a010f8aceea864aa499f29ad271922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   forces: {x: 0, y: 0, z: 0}
 --- !u!114 &5960918086689554991
 MonoBehaviour:
