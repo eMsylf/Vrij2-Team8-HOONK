@@ -36,6 +36,7 @@ public class ObjectInteraction : MonoBehaviour {
     void FixedUpdate() {
         Physics.Raycast(new Ray(artTransform.position, artTransform.forward), out hitInfo, maxInteractionRange);
 
+        // When the player is already holding an object
         if (pickup != null) {
             if (Input.GetKeyDown(a)) {
                 DropObject();
@@ -50,15 +51,26 @@ public class ObjectInteraction : MonoBehaviour {
                 pickup.transform.Rotate(0, rotationAmount, 0);
                 Debug.Log("R1, turn object RIGHT");
             }
-        } else if (pickup == null) {
+        } // When the player is not holding an object
+        else if (pickup == null) {
             if (hitInfo.transform != null) {
                 if (hitInfo.transform.GetComponent<PickupObject>() != null) {
                     if (Input.GetKeyDown(a)) {
                         PickupObject();
                     }
                 }
+                // If there's a switch to press, toggle it
+                if (hitInfo.transform.GetComponent<FanSwitch>() != null) {
+                    if (Input.GetKeyDown(a)) {
+                        FanSwitch fanSwitch = hitInfo.transform.GetComponent<FanSwitch>();
+                        fanSwitch.Toggle();
+                    }
+                }
             }
         }
+
+
+
     }
 
     private void PickupObject() {

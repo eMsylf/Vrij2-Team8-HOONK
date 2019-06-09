@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Wind_Script : MonoBehaviour {
+    public bool isBlowing = false;
+
     private float windZoneStrength;
     [SerializeField] private float windStrength = 1f;
 
     private float distanceFromFan;
 
 
-    private void FixedUpdate() {
-        //ApplyWindZoneStrengthToVariables();
-
-    }
-
     private void OnTriggerStay(Collider other) {
+        if (!isBlowing) {
+            return;
+        }
         if (other.attachedRigidbody == null) {
             return;
         }
@@ -28,11 +28,5 @@ public class Wind_Script : MonoBehaviour {
 
         
         other.attachedRigidbody.AddForce(transform.up * windStrength * (1/distanceFromFan));
-    }
-
-    private void ApplyWindZoneStrengthToVariables() {
-        if (GetComponentInParent<WindZone>() != null)
-        windZoneStrength = GetComponentInParent<WindZone>().windMain;
-        windStrength = windZoneStrength;
     }
 }
