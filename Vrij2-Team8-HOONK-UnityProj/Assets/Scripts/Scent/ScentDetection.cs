@@ -11,24 +11,33 @@ public class ScentDetection : MonoBehaviour {
     [Range(.0f, 2f)]
     [SerializeField] private float approachDistance = 1f;
     [SerializeField] private Transform movementGoal;
-    [SerializeField] private bool foundSource = false;
-    [SerializeField] private Transform scentSource;
-    [SerializeField] private Transform scentTransform;
+    private bool foundSource = false;
+    private Transform scentSource;
+    private Transform scentTransform;
+    private bool foundPlayer = false;
+    private Transform playerTransform;
+
+    private Rigidbody robot_rb;
 
 
     private void Start() {
         foundSource = false;
+        foundPlayer = false;
         scentTransform = transform;
 
         movementGoal = Instantiate(movementGoal.gameObject).transform;
         movementGoal.position = transform.position;
+
+        robot_rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate() {
         // Wat moet er gebeuren als de bron is gevonden?
         // De robot moet de geurbron benaderen tot aan een bepaalde afstand
         // Continuously update the movement goal to follow the scent source's position
-        if (foundSource) {
+        if (foundPlayer) {
+            movementGoal.position = playerTransform.position;
+        } else if (foundSource) {
             movementGoal.position = scentSource.position;
         }
         // Stop all movements if the source has been approached
@@ -47,10 +56,20 @@ public class ScentDetection : MonoBehaviour {
         transform.rotation = Quaternion.Lerp(currentRotation, desiredRotation, turnSpeed);
         
         LockXZRotations();
-        transform.position += transform.forward * movementSpeed;
+        robot_rb.AddForce(transform.forward * movementSpeed, ForceMode.VelocityChange);
+        //transform.position += transform.forward * movementSpeed;
     }
 
     private void OnTriggerEnter(Collider other) {
+        if (foundPlayer) {
+            return;
+        }
+        if (other.GetComponent<PlayerMovement>() != null) {
+            foundPlayer = true;
+            playerTransform = other.transform;
+            movementGoal.position = playerTransform.position;
+        }
+
         if (foundSource) {
             return;
         }
@@ -73,14 +92,14 @@ public class ScentDetection : MonoBehaviour {
     }
 
     private void OnTriggerExit(Collider other) {
-        if (other.transform == scentSource) {
+        if (other.transform == playerTransform) {
+            foundPlayer = false;
+            // Move to last remembered spot of where the player was.
+            movementGoal.position = other.transform.position;
+        } else if (other.transform == scentSource) {
             foundSource = false;
             // Move to last remembered spot of where the scent source was.
-            scentTransform = other.transform;
             movementGoal.position = scentTransform.position;
-
-            Debug.Log("Scent source has left range.");
-            Debug.Log("Updated the destination position to self");
         }
     }
 
