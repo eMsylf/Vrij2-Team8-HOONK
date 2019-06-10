@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour {
     private float MovementSpeed = 1f;
     private float RotationSpeed = 1f;
 
-    [Range(.01f, .9f)]
-    [SerializeField] private float movementSpeed2 = .1f;
+    [Range(.01f, 10f)]
+    [SerializeField] private float movementSpeed2 = 6f;
     [SerializeField] private Transform cam;
 
     private Rigidbody rigidbody_Player;
@@ -70,8 +70,8 @@ public class PlayerMovement : MonoBehaviour {
         float vert = Input.GetAxis("Vertical");
         float hor = Input.GetAxis("Horizontal");
 
-        Vector3 velocity = (forwardDirection * vert + rightDirection * hor) * MovementSpeed * isHoldingMovementChange;
-        velocity = Vector3.ClampMagnitude(velocity, MovementSpeed);
+        Vector3 velocity = (forwardDirection * vert + rightDirection * hor) * movementSpeed2 * isHoldingMovementChange;
+        velocity = Vector3.ClampMagnitude(velocity, movementSpeed2);
 
         rigidbody_Player.MovePosition(rigidbody_Player.position + velocity * Time.deltaTime);
     }
