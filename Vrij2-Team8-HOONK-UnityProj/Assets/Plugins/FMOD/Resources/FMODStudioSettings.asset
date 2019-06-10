@@ -15,9 +15,10 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  SourceProjectPathUnformatted: 
-  SourceBankPathUnformatted: 
+  sourceProjectPath: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Sense V2.0.fspro
+  SourceProjectPathUnformatted: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Sense
+    V2.0.fspro
+  SourceBankPathUnformatted: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Build
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
@@ -57,7 +58,9 @@ MonoBehaviour:
     Value: 0
   - Platform: 20
     Value: 0
-  BankDirectorySettings: []
+  BankDirectorySettings:
+  - Platform: 2
+    Value: Desktop
   VirtualChannelSettings:
   - Platform: 1
     Value: 1024
@@ -73,7 +76,9 @@ MonoBehaviour:
   - Platform: 20
     Value: 32
   Plugins: []
-  MasterBanks: []
-  Banks: []
+  MasterBanks:
+  - Master
+  Banks:
+  - Master.strings
   BanksToLoad: []
   LiveUpdatePort: 9264

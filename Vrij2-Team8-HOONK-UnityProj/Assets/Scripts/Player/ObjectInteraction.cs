@@ -74,11 +74,18 @@ public class ObjectInteraction : MonoBehaviour {
     }
 
     private void PickupObject() {
+        pickup = hitInfo.transform;
+        // Check if the pickup object is a blowing fan. If so, the player can't pick it up.
+        if (pickup.GetComponent<Fan>() != null) {
+            if (pickup.GetComponentInChildren<Wind_Script>().isBlowing) {
+                return;
+            }
+        }
+
         isHoldingSomething = true;
 
         Debug.Log("Pickup " + hitInfo.transform.name);
         // Store variables
-        pickup = hitInfo.transform;
         pickup_rb = pickup.GetComponent<Rigidbody>();
 
         // Move position to 
