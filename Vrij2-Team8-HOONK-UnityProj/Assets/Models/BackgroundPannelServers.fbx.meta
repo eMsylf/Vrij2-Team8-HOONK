@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 99085449a9207ea499885765ff0bc690
+guid: 99501a3d2e268d642851f4fa1f6d7da5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert9
+    2100000: lambert18
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCube1
+    4300000: pCube57
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -60,7 +60,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
