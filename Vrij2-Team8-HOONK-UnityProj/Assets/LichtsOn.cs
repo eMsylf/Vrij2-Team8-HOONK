@@ -7,7 +7,7 @@ public class LichtsOn : MonoBehaviour
     // Start is called before the first frame update
     public Animator anim;
 
-    private void OnColliderEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.name == "Player")
         {
