@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    public float MovementSpeed = 1f;
-    public float RotationSpeed = 1f;
+    private float MovementSpeed = 1f;
+    private float RotationSpeed = 1f;
 
-    [SerializeField] private Transform moveGoal;
     [Range(.01f, .9f)]
     [SerializeField] private float movementSpeed2 = .1f;
-    [SerializeField] private Transform rotator;
     [SerializeField] private Transform cam;
 
     private Rigidbody rigidbody_Player;
@@ -26,8 +24,9 @@ public class PlayerMovement : MonoBehaviour {
     [Range(0f, 1f)]
     public float isHoldingRotation = .0f;
 
-    public float isHoldingMovementChange;
-    public float isHoldingRotationChange;
+    [NonSerialized] public float isHoldingMovementChange;
+    [NonSerialized] public float isHoldingRotationChange;
+
     private void Start() {
         rigidbody_Player = GetComponent<Rigidbody>();
         ObjectInteraction = GetComponent<ObjectInteraction>();
