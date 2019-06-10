@@ -31,7 +31,12 @@ ModelImporter:
     4300004: pCube19
     4300006: FrontCap3
     4300008: Metalenbehuizing3
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: e89db027d8c7eb643b106289bc149748, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
