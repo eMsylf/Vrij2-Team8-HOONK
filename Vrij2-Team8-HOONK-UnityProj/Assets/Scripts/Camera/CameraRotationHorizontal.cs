@@ -12,7 +12,7 @@ public class CameraRotationHorizontal : MonoBehaviour {
     private Quaternion storedRotation;
 
     [Range(.01f, 1f)]
-    [SerializeField] private float playerRotationSmoothing = .8f;
+    [SerializeField] private float playerRotationSmoothing = .33f;
 
     private PlayerMovement PlayerMovement;
     private ObjectInteraction ObjectInteraction;
