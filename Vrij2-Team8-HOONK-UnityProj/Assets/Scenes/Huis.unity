@@ -160,7 +160,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &40178687
 PrefabInstance:
@@ -5014,6 +5014,95 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700368482}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &708423726
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1858826794085813192, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_Name
+      value: Soundtrack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 336.52914
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.891861
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 116.57131
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813198, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813199, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: Params.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813199, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: Event
+      value: event:/Background Music Ambience/SoundTrack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813199, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: StopEvent
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858826794085813199, guid: 404c2b91e8b052742aae62e85c640779,
+        type: 3}
+      propertyPath: Params.Array.data[1].Name
+      value: PartSelector
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 404c2b91e8b052742aae62e85c640779, type: 3}
 --- !u!1 &709065235
 GameObject:
   m_ObjectHideFlags: 0
@@ -6428,7 +6517,17 @@ PrefabInstance:
     - target: {fileID: 3650498265461417900, guid: 853cd17859f805049a8d0e15df739e46,
         type: 3}
       propertyPath: movementSpeed2
-      value: 0.9
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650498265461417911, guid: 853cd17859f805049a8d0e15df739e46,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650498265461417911, guid: 853cd17859f805049a8d0e15df739e46,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7497662389358485125, guid: 853cd17859f805049a8d0e15df739e46,
         type: 3}
@@ -13637,7 +13736,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537778729}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 33.95681, y: 3.886455, z: 10.78701}
@@ -13687,12 +13786,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Emitters:
-  - Target: {fileID: 0}
+  - Target: {fileID: 1913158053}
     Params:
     - Name: PartSelector
       Value: 2
-  TriggerEvent: 9
-  CollisionTag: 
+  TriggerEvent: 3
+  CollisionTag: Player
 --- !u!1 &1557418196
 GameObject:
   m_ObjectHideFlags: 0
@@ -15937,6 +16036,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903653268}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1913158053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1858826794085813199, guid: 404c2b91e8b052742aae62e85c640779,
+    type: 3}
+  m_PrefabInstance: {fileID: 708423726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1933733517
 GameObject:
   m_ObjectHideFlags: 0
@@ -17395,7 +17506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095228512
 GameObject:
