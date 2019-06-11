@@ -7,11 +7,10 @@ public class Music : MonoBehaviour
 {
     [EventRef]
     public string Event = "";
-
+    internal int PartSelector;
     FMOD.Studio.EventInstance music;
-    public float PartSelector;
-
-    public void Awake()
+    
+   public void Awake()
     {
 
         GameObject[] objects = GameObject.FindGameObjectsWithTag("music");
@@ -19,12 +18,14 @@ public class Music : MonoBehaviour
             Destroy(this.gameObject);
         DontDestroyOnLoad(this.gameObject);
         music = RuntimeManager.CreateInstance(Event);
+        float PartSelector;
         music.getParameterByName("PartSelector", out PartSelector);
-        PartSelector = 1;
+        
     }
 
     private void Start()
     {
+        music.setParameterByName("PartSelector", 0.5f);
         music.start();
     }
     
