@@ -235,12 +235,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.1
+  foundPlayerSpeed: 1
+  foundSourceSpeed: 1
   turnSpeed: 0.059
   approachDistance: 0.63
   movementGoal: {fileID: 8634124084668343540, guid: 149fcf12b3957514795100e290bc49b1,
     type: 3}
   huntsPlayer: 1
   fixatesOnSource: 1
+  followsScentParticles: 1
 --- !u!114 &4364199455355523086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +308,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5960918086689554981}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 100
   m_Drag: 2.45
   m_AngularDrag: 0
   m_UseGravity: 0
