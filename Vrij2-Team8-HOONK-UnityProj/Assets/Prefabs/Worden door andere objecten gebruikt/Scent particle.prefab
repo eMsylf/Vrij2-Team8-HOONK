@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4806453391380299627}
   - component: {fileID: 9204656730394049796}
   - component: {fileID: 2228937819269164148}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Scent particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,6 +12,7 @@ public class CameraFollow : MonoBehaviour
     public Transform MountFollowsThis;
     public Transform CameraLooksAtThis;
 
+
     [Range(1f, 20f)]
     public float CameraDistance = 3f;
     [Range(.1f, 1f)]

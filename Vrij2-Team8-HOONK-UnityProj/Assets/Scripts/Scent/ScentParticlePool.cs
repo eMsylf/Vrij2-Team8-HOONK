@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScentParticlePool : MonoBehaviour{
+public class ScentParticlePool : MonoBehaviour
+{
 
     [SerializeField] private GameObject scentParticlePrefab;
 
-    [Range(.01f, 1f)]
+    [Range(.01f, 10f)]
     [SerializeField] private float particleIntervalSeconds = 1f;
 
     [Range(.01f, 10f)]
@@ -25,14 +26,18 @@ public class ScentParticlePool : MonoBehaviour{
 
     Despawn GetDespawn;
 
-    private void Awake() {
-        if (scentParticlePool == null) {
+    private void Awake()
+    {
+        if (scentParticlePool == null)
+        {
             scentParticlePrefab = gameObject;
         }
 
         // Collect all ScentParticles in the pool, and exclude the pool object itself.
-        foreach (Transform scentTransform in GetComponentsInChildren<Transform>()) {
-            if (scentTransform != transform) {
+        foreach (Transform scentTransform in GetComponentsInChildren<Transform>())
+        {
+            if (scentTransform != transform)
+            {
                 scentParticlePool.Add(scentTransform);
                 scentTransform.gameObject.SetActive(false);
             }
@@ -42,16 +47,21 @@ public class ScentParticlePool : MonoBehaviour{
 
         Debug.Log("Scent particles available: " + scentParticlesAvailable + ". Scent particle pool capacity: " + scentParticlePoolCapacity);
 
-        if (scentParticlesAvailable < scentParticlePoolCapacity) {
+        if (scentParticlesAvailable < scentParticlePoolCapacity)
+        {
             int spotsRemaining = scentParticlePoolCapacity - scentParticlesAvailable;
             Debug.Log("There are " + spotsRemaining + " spots remaining.");
             Debug.Log("Filling up remaining spaces with scent particles.");
-            if (scentParticlePrefab == null) {
+            if (scentParticlePrefab == null)
+            {
                 Debug.LogWarning("The scent particle prefab is not assigned. Please do so in the '" + gameObject.name + "'.");
-            } else {
-                for (int i = 0; i <= spotsRemaining; i++) {
+            }
+            else
+            {
+                for (int i = 0; i <= spotsRemaining; i++)
+                {
                     Transform currentSpawnTransform = Instantiate(scentParticlePrefab).transform;
-                    
+
                     Debug.Log("Adding " + currentSpawnTransform.name + "to pool position " + i);
                     scentParticlePool[i] = currentSpawnTransform;
 
@@ -62,32 +72,42 @@ public class ScentParticlePool : MonoBehaviour{
         }
     }
 
-    void Start() {
+    void Start()
+    {
         spawnPos = transform.position;
         StartCoroutine(SpawnObjectPool());
     }
 
-    private void Update() {
+    private void Update()
+    {
         // The particle lifetime cannot be longer than the time it takes to cycle through the list, because the pool will run out of objects to spawn. 
         // So the particle lifetime will always have to be equal to, or shorter than the time it takes to cycle through the list
-        if (scentParticlePool.Count/particleIntervalSeconds > setParticleLifetime) {
+        if (scentParticlePool.Count / particleIntervalSeconds > setParticleLifetime)
+        {
             particleLifetime = scentParticlePool.Count / particleIntervalSeconds;
-        } else {
+        }
+        else
+        {
             particleLifetime = setParticleLifetime;
         }
     }
 
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
         //Debug.Log("Colliding with " + other.name);
-        if (other.name == "Wind") {
+        if (other.name == "Wind")
+        {
             Debug.Log("HECK YEA IT'S REGISTERING");
-        } else {
+        }
+        else
+        {
             //Debug.Log("FUCK IT'S NOT REGISTERING");
         }
     }
 
-    private IEnumerator SpawnObjectPool() {
+    private IEnumerator SpawnObjectPool()
+    {
         // Spawn an object from the pool at the scent object's position
         // DEZE MOET ELKE KEER OPNIEUW KIJKEN NAAR SNELHEID EN DE LENGTE VAN DE LIJST, EN JUIST OPVULLEN, 
         // OP HET MOMENT WORDEN SOMMIGE OBJECTEN NIET MEER AANGESPROKEN TERWIJL DAT WEL ZOU MOETEN
@@ -101,7 +121,7 @@ public class ScentParticlePool : MonoBehaviour{
         // Spawn particle slightly above the object
         Vector3 spawnPosTurbulence = new Vector3(Random.Range(-.5f, .5f), .6f, Random.Range(-.5f, .5f));
         UpdateSpawnPos();
-        scentParticlePool[iterator].position = spawnPos + spawnPosTurbulence;
+        particle_rb.position = spawnPos + spawnPosTurbulence;
 
         // Reset particle speed ANOTHER TIME because it won't work in the object's script itself
         particle_rb.velocity = Vector3.zero;
@@ -113,7 +133,8 @@ public class ScentParticlePool : MonoBehaviour{
 
         iterator++;
         //Debug.Log(iterator + " / " + scentParticlePool.Count);
-        if (iterator >= scentParticlePool.Count) {
+        if (iterator >= scentParticlePool.Count)
+        {
             iterator = 0;
         }
         yield return new WaitForSeconds(particleIntervalSeconds);
@@ -122,7 +143,8 @@ public class ScentParticlePool : MonoBehaviour{
         StartCoroutine(SpawnObjectPool());
     }
 
-    private void UpdateSpawnPos() {
+    private void UpdateSpawnPos()
+    {
         spawnPos = transform.position;
     }
 }
