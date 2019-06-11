@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraRotationHorizontal : MonoBehaviour {
+public class CameraRotationHorizontal : MonoBehaviour
+{
     [SerializeField] private float rotationSpeed = 1f;
     [Range(.1f, .9f)]
     [SerializeField] private float rotationSmoothing = .9f;
@@ -17,35 +18,41 @@ public class CameraRotationHorizontal : MonoBehaviour {
     private PlayerMovement PlayerMovement;
     private ObjectInteraction ObjectInteraction;
 
-    void Start() {
+    void Start()
+    {
         cameraRotationY = 0f;
 
         PlayerMovement = player.GetComponent<PlayerMovement>();
         ObjectInteraction = player.GetComponent<ObjectInteraction>();
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         cameraRotationY = Mathf.Lerp(
-            cameraRotationY, 
-            Input.GetAxis("HorizontalR") * rotationSpeed, 
+            cameraRotationY,
+            Input.GetAxis("HorizontalR") * rotationSpeed,
             rotationSmoothing
             );
         transform.Rotate(0f, cameraRotationY, 0f, Space.Self);
 
         Vector3 forwardDirectionCamera = Vector3.Scale(transform.forward, new Vector3(1, 0, 1));
 
-        if (Input.GetAxis("Vertical") == 0f && Input.GetAxis("HorizontalR") == 0f) {
+        if (Input.GetAxis("Vertical") == 0f && Input.GetAxis("Horizontal") == 0f)
+        {
             playerArt.rotation = storedRotation;
-        } else {
+        }
+        else
+        {
             playerArt.rotation = Quaternion.Lerp(
-                storedRotation, 
-                Quaternion.LookRotation(forwardDirectionCamera * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")), 
+                storedRotation,
+                Quaternion.LookRotation(forwardDirectionCamera * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")),
                 playerRotationSmoothing * PlayerMovement.isHoldingRotationChange);
             StoreLookRotation(playerArt.rotation);
         }
     }
 
-    private void StoreLookRotation(Quaternion quaternion) {
+    private void StoreLookRotation(Quaternion quaternion)
+    {
         storedRotation = quaternion;
     }
 }
