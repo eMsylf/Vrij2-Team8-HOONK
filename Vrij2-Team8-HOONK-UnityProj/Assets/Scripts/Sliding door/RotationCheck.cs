@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationCheck : MonoBehaviour
-{
+public class RotationCheck : MonoBehaviour {
     public Light correctRotationLight;
 
     public bool isRotatedCorrectly;
     [Range(0f, 360f)]
     [SerializeField] private float currentRotation;
-    [Range(0f, 720f)]
+    [Range(0f, 360f)]
     [SerializeField] private float rotationMin;
-    [Range(0f, 720f)]
+    [Range(0f, 360f)]
     [SerializeField] private float rotationMax;
 
 
@@ -22,35 +21,27 @@ public class RotationCheck : MonoBehaviour
     float hur;
     float dur;
 
-    void Start()
-    {
-        if (correctRotationLight == null)
-        {
-            if (GetComponentInChildren<Light>() != null)
-            {
+    void Start() {
+        if (correctRotationLight == null) {
+            if (GetComponentInChildren<Light>() != null) {
                 correctRotationLight = GetComponentInChildren<Light>();
             }
         }
         correctRotationLight.enabled = isRotatedCorrectly;
     }
 
-    void Update()
-    {
+    void Update() {
         currentRotation = transform.eulerAngles.y;
-        if (currentRotation >= rotationMin && currentRotation <= rotationMax)
-        {
+        if (currentRotation >= rotationMin && currentRotation <= rotationMax) {
             isRotatedCorrectly = true;
-        }
-        else
-        {
+            correctRotationLight.color = Color.green;
+        } else {
             isRotatedCorrectly = false;
+            correctRotationLight.color = Color.red;
         }
-
-        correctRotationLight.enabled = isRotatedCorrectly;
     }
 
-    private void OnDrawGizmosSelected()
-    {
+    private void OnDrawGizmosSelected() {
         currentRotation = transform.eulerAngles.y;
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
@@ -70,27 +61,15 @@ public class RotationCheck : MonoBehaviour
         Gizmos.DrawLine(transform.position, minPos);
         Gizmos.DrawLine(transform.position, maxPos);
 
-        /*
-        for (float i = start; i < partitions; i++) {
-            Vector3 tempPos1 = transform.position + new Vector3(Mathf.Sin((rotationMinRad + i - 1) / partitions), 0, Mathf.Cos((rotationMinRad + i - 1) / partitions)) * 2;
-            Vector3 tempPos2 = transform.position + new Vector3(Mathf.Sin((rotationMinRad + i) / partitions), 0, Mathf.Cos((rotationMinRad + i) / partitions)) * 2;
-        }
-        */
-
-
         partitions = (rotationMaxRad - rotationMinRad);
 
-        for (float i = 0; i < partitions * heck; i++)
-        {
-            if (i == 0)
-            {
-                hur = rotationMinRad + i / heck;
+        for (float i = 0; i < partitions * heck; i++) {
+            if (i == 0) {
+                hur = rotationMinRad + i /heck;
+            } else {
+                hur = rotationMinRad + (i - 1)/heck;
             }
-            else
-            {
-                hur = rotationMinRad + (i - 1) / heck;
-            }
-            dur = rotationMinRad + i / heck;
+            dur = rotationMinRad + i /heck;
 
             Vector3 tempPos1 = transform.position + new Vector3(Mathf.Sin(hur), 0, Mathf.Cos(hur)) * 2;
             Vector3 tempPos2 = transform.position + new Vector3(Mathf.Sin(dur), 0, Mathf.Cos(dur)) * 2;
@@ -98,6 +77,6 @@ public class RotationCheck : MonoBehaviour
         }
 
         Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 2);
+        Gizmos.DrawLine(transform.position, transform.position +transform.forward * 2);
     }
 }
