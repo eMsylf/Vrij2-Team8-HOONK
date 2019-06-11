@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4563da78983dde34bbb1de7aa72c5f1b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,11 +101,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5960918086689554986}
   - component: {fileID: 5960918086689554984}
-  - component: {fileID: 5960918086689554987}
-  - component: {fileID: 5960918086689554985}
+  - component: {fileID: 4364199455355523086}
   - component: {fileID: 5960918086689554990}
   - component: {fileID: 5960918086689554991}
-  - component: {fileID: 4364199455355523086}
+  - component: {fileID: 5960918086689554987}
+  - component: {fileID: 5960918086689554985}
   m_Layer: 0
   m_Name: Geur Robot (V2)
   m_TagString: Untagged
@@ -147,6 +147,50 @@ MonoBehaviour:
   approachDistance: 0.63
   movementGoal: {fileID: 8634124084668343540, guid: 149fcf12b3957514795100e290bc49b1,
     type: 3}
+  huntsPlayer: 1
+  fixatesOnSource: 1
+--- !u!114 &4364199455355523086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960918086689554981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e1c9836a38a80468ed0a6a414c4d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRotationLight: {fileID: 0}
+  isRotatedCorrectly: 0
+  currentRotation: 0
+  rotationMin: 137
+  rotationMax: 183
+--- !u!114 &5960918086689554990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960918086689554981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a010f8aceea864aa499f29ad271922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forces: {x: 0, y: 0, z: 0}
+--- !u!114 &5960918086689554991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960918086689554981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2108a0c4eb653024cb5c895dc886699c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &5960918086689554987
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -177,45 +221,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &5960918086689554990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5960918086689554981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a010f8aceea864aa499f29ad271922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forces: {x: 0, y: 0, z: 0}
---- !u!114 &5960918086689554991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5960918086689554981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2108a0c4eb653024cb5c895dc886699c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4364199455355523086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5960918086689554981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08e1c9836a38a80468ed0a6a414c4d47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  correctRotationLight: {fileID: 0}
-  isRotatedCorrectly: 0
 --- !u!1 &5960918087039037134
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +279,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 49045c0014f3aec48808c816b04e4f68, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
