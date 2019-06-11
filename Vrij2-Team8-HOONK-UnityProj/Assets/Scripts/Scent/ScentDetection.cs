@@ -11,6 +11,8 @@ public class ScentDetection : MonoBehaviour {
     [Range(.0f, 2f)]
     [SerializeField] private float approachDistance = 1f;
     [SerializeField] private Transform movementGoal;
+    [SerializeField] private bool huntsPlayer = true;
+    [SerializeField] private bool fixatesOnSource = true;
     private bool foundSource = false;
     private Transform scentSource;
     private Transform scentTransform;
@@ -61,34 +63,41 @@ public class ScentDetection : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (foundPlayer) {
-            return;
-        }
-        if (other.GetComponent<PlayerMovement>() != null) {
-            foundPlayer = true;
-            playerTransform = other.transform;
-            movementGoal.position = playerTransform.position;
+        if (huntsPlayer) {
+            if (foundPlayer) {
+                return;
+            }
+            if (other.GetComponent<PlayerMovement>() != null) {
+                foundPlayer = true;
+                playerTransform = other.transform;
+                movementGoal.position = playerTransform.position;
+            }
         }
 
-        if (foundSource) {
-            return;
-        }
-        if (other.GetComponent<ScentParticlePool>() != null) {
-            // Source has been found
-            foundSource = true;
-            // Store the transform so the robot can ignore other scent particles
-            scentSource = other.transform;
+        if (fixatesOnSource) {
+            if (foundSource) {
+                return;
+            }
+            if (other.GetComponent<ScentParticlePool>() != null) {
+                // Source has been found
+                foundSource = true;
+                // Store the transform so the robot can ignore other scent particles
+                scentSource = other.transform;
 
-            // Update movement goal position
-            movementGoal.position = scentSource.position;
-            
-        } else if (other.GetComponent<Scent>() != null) {
+                // Update movement goal position
+                movementGoal.position = scentSource.position;
+
+            }
+        }
+
+        if (other.GetComponent<Scent>() != null) {
             // Other scent particle has been found
             scentTransform = other.transform;
 
             // Update movement goal position
             movementGoal.position = scentTransform.position;
         }
+
     }
 
     private void OnTriggerExit(Collider other) {

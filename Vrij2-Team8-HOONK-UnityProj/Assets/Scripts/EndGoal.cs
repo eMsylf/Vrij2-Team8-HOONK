@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndGoal : MonoBehaviour {
-    private void OnCollisionEnter(Collision collision) {
+    private void OnTriggerEnter(Collider collision) {
         if (collision.gameObject.name == "Player") {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
