@@ -30,7 +30,7 @@ MonoBehaviour:
   - {fileID: 114082408341613716}
   StringsBanks:
   - {fileID: 114399807894705196}
-  stringsBankWriteTime: 636957891331486302
+  stringsBankWriteTime: 636958532146651589
   cacheVersion: 3
 --- !u!114 &114025159318885608
 MonoBehaviour:
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Build\Desktop\Master.bank
-  lastModified: 636957891331436246
+  lastModified: 636958532146611462
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -94,7 +94,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114526366317005676}
+  - {fileID: 114192566380845246}
   MinDistance: 0
   MaxDistance: 0
   Length: 22000
@@ -161,6 +161,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &114192566380845246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: PartSelector
+  Min: 0
+  Max: 4
+  Default: 0
+  Exists: 0
 --- !u!114 &114399807894705196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,12 +191,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Build\Desktop\Master.strings.bank
-  lastModified: 636957891331486302
+  lastModified: 636958532146651589
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 1314
   Exists: 1
+--- !u!114 &114520100657466300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MenuSelect
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &114526366317005676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +320,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114165466118341378}
+  - {fileID: 114520100657466300}
   MinDistance: 0
   MaxDistance: 0
   Length: 3000
