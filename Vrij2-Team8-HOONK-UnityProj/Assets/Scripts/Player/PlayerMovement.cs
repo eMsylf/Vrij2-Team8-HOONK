@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     private float MovementSpeed = 1f;
     private float RotationSpeed = 1f;
+    public Animator anim;
 
     [Range(.01f, 10f)]
     [SerializeField] private float movementSpeed2 = 6f;
@@ -72,7 +73,14 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector3 velocity = (forwardDirection * vert + rightDirection * hor) * movementSpeed2 * isHoldingMovementChange;
         velocity = Vector3.ClampMagnitude(velocity, movementSpeed2);
-
+        if (velocity != Vector3.zero)
+        {
+            anim.SetTrigger("Walk");
+        }
+        else
+        {
+            anim.ResetTrigger("Walk");
+        }
         rigidbody_Player.MovePosition(rigidbody_Player.position + velocity * Time.deltaTime);
     }
 
