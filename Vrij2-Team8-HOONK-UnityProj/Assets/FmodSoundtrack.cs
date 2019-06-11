@@ -12,11 +12,11 @@ public class FmodSoundtrack : MonoBehaviour
     public string Event = "";
 
     FMOD.Studio.EventInstance music;
-    FMOD.Studio.ParameterInstance PartSelector;
+    float PartSelector;
     private void Awake()
     {
         music = RuntimeManager.CreateInstance(Event);
-        music.getParameter("PartSelector", out PartSelector);
+        music.getParameterByName("PartSelector", out PartSelector);
     }
     private void Start()
     {
