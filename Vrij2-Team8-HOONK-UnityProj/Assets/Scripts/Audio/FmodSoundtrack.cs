@@ -13,11 +13,20 @@ public class FmodSoundtrack : MonoBehaviour
 
     FMOD.Studio.EventInstance music;
     float PartSelector;
-    private void Awake()
+    public void Awake()
     {
         music = RuntimeManager.CreateInstance(Event);
         music.getParameterByName("PartSelector", out PartSelector);
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.name == "Player")
+        {
+            PartSelector = 3;
+        }
+    }
+
     private void Start()
     {
         music.start();
