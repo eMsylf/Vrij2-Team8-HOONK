@@ -1,35 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using FMODUnity;
+using System;
+
 
 public class FmodSoundtrack : MonoBehaviour
-{   public Button start;
-    public string path;
-    public int pathselector;
-    //private FMOD.Studio.Parameter.Instance instance;
-    public Input lol;
+{   
+    
+    [EventRef]
+    public string Event = "";
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    FMOD.Studio.EventInstance music;
+    FMOD.Studio.ParameterInstance PartSelector;
+    private void Awake()
     {
-        //lol = FMOD.Studio.System.Instance.GetEvent("event:/Background Music Ambience/SoundTrack");
-        pathselector = 1;
+        music = RuntimeManager.CreateInstance(Event);
+        music.getParameter("PartSelector", out PartSelector);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
-        {
-            start.onClick.AddListener(delegate { Next(path); }); 
-        }
-    }
-    void Next(string path)
-    {
-        FMODUnity.RuntimeManager.PlayOneShot(path, GetComponent<Transform>().position);
+        music.start();
     }
 }
