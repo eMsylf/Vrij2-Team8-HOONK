@@ -15,10 +15,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Barrier
+  - Player
+  - Enemy
+  - ScentParticle
   - 
   - 
   - 

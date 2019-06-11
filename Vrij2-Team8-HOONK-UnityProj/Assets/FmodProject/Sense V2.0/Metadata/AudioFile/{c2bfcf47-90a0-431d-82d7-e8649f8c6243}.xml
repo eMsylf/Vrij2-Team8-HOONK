@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{c2bfcf47-90a0-431d-82d7-e8649f8c6243}">
+		<property name="assetPath">
+			<value>Footstap Hout - 1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.37501133786848073</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{38f46a7e-f72f-457f-86da-2774dd58ae88}</destination>
+		</relationship>
+	</object>
+</objects>
