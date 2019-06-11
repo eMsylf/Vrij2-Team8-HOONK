@@ -5,25 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision) {
+    [SerializeField] private float deathDelay = .5f;
+    private void OnCollisionEnter(Collision collision)
+    {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.GetComponent<Enemy>() != null) {
+        if (collision.gameObject.GetComponent<Enemy>() != null)
+        {
             Debug.Log("GAME OVER");
             OnGameOver();
         }
     }
 
-    private void OnGameOver() {
+    private void OnGameOver()
+    {
 
         Debug.Log("Oops you died try again pls");
 
         // Wait 3 seconds before restarting
-        StartCoroutine(enumerator());        
+        StartCoroutine(enumerator());
 
     }
 
-    private IEnumerator enumerator() {
-        yield return new WaitForSeconds(2f);
+    private IEnumerator enumerator()
+    {
+        yield return new WaitForSeconds(deathDelay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
