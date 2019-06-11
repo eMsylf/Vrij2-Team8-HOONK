@@ -33,7 +33,7 @@ public class ObjectInteraction : MonoBehaviour {
 
     }
 
-    void FixedUpdate() {
+    void Update() {
         Physics.Raycast(new Ray(artTransform.position, artTransform.forward), out hitInfo, maxInteractionRange);
 
         // When the player is already holding an object
@@ -45,7 +45,6 @@ public class ObjectInteraction : MonoBehaviour {
             if (Input.GetKeyDown(lb)) {
                 pickup.transform.Rotate(0, -rotationAmount, 0);
                 Debug.Log("L1, turn object LEFT");
-
             }
             if (Input.GetKeyDown(rb)) {
                 pickup.transform.Rotate(0, rotationAmount, 0);
@@ -74,13 +73,13 @@ public class ObjectInteraction : MonoBehaviour {
     }
 
     private void PickupObject() {
-        pickup = hitInfo.transform;
         // Check if the pickup object is a blowing fan. If so, the player can't pick it up.
         if (pickup.GetComponent<Fan>() != null) {
             if (pickup.GetComponentInChildren<Wind_Script>().isBlowing) {
                 return;
             }
         }
+        pickup = hitInfo.transform;
 
         isHoldingSomething = true;
 

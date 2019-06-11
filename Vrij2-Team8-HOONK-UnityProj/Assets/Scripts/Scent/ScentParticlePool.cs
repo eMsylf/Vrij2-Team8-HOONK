@@ -15,8 +15,10 @@ public class ScentParticlePool : MonoBehaviour
 
     [Range(.5f, 10f)]
     [SerializeField] private float setParticleLifetime = 1f;
+    [SerializeField] private Vector3 startForce;
 
     [SerializeField] private List<Transform> scentParticlePool;
+
 
     private float particleLifetime = 5f;
 
@@ -129,7 +131,7 @@ public class ScentParticlePool : MonoBehaviour
         // Give the particle speed
         // THIS SHOULD BE INHERITED FROM THE WIND HITBOX
 
-        particle_rb.AddForce(startSpeed, 0f, 0f, ForceMode.VelocityChange);
+        particle_rb.AddForce(startForce, ForceMode.VelocityChange);
 
         iterator++;
         //Debug.Log(iterator + " / " + scentParticlePool.Count);

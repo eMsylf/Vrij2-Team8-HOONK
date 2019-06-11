@@ -15,10 +15,12 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Sense V2.0.fspro
-  SourceProjectPathUnformatted: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Sense
+  sourceProjectPath: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Sense V2.0\Sense
     V2.0.fspro
-  SourceBankPathUnformatted: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Build
+  SourceProjectPathUnformatted: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Sense
+    V2.0\Sense V2.0.fspro
+  SourceBankPathUnformatted: D:\School\HKU\jaar 2\Periode 4\Vrij\Sense V2.0\Sense
+    V2.0\Build
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
@@ -39,7 +41,7 @@ MonoBehaviour:
     Value: 0
   LiveUpdateSettings:
   - Platform: 1
-    Value: 1
+    Value: 0
   - Platform: 2
     Value: 0
   - Platform: 20
