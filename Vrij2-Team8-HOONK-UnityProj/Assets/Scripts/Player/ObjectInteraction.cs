@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectInteraction : MonoBehaviour {
+public class ObjectInteraction : MonoBehaviour
+{
 
     [SerializeField] private Transform artTransform;
     [Range(0f, 10f)]
@@ -29,57 +30,91 @@ public class ObjectInteraction : MonoBehaviour {
 
     public bool isHoldingSomething;
 
-    void Start() {
+    void Start()
+    {
 
     }
 
-    void Update() {
+    void Update()
+    {
         Physics.Raycast(new Ray(artTransform.position, artTransform.forward), out hitInfo, maxInteractionRange);
 
         // When the player is already holding an object
-        if (pickup != null) {
-            if (Input.GetKeyDown(a)) {
+        if (pickup != null)
+        {
+            if (Input.GetKeyDown(a))
+            {
                 DropObject();
             }
-
-            if (Input.GetKeyDown(lb)) {
-                pickup.transform.Rotate(0, -rotationAmount, 0);
-                Debug.Log("L1, turn object LEFT");
-            }
-            if (Input.GetKeyDown(rb)) {
-                pickup.transform.Rotate(0, rotationAmount, 0);
-                Debug.Log("R1, turn object RIGHT");
+            if (isHoldingSomething)
+            {
+                if (Input.GetKeyDown(lb))
+                {
+                    TurnObjectLeft();
+                }
+                if (Input.GetKeyDown(rb))
+                {
+                    TurnObjectRight();
+                }
             }
         } // When the player is not holding an object
-        else if (pickup == null) {
-            if (hitInfo.transform != null) {
-                if (hitInfo.transform.GetComponent<PickupObject>() != null) {
-                    if (Input.GetKeyDown(a)) {
+        else if (pickup == null)
+        {
+            if (hitInfo.transform != null)
+            {
+                if (hitInfo.transform.GetComponent<PickupObject>() != null)
+                {
+                    if (Input.GetKeyDown(a))
+                    {
                         PickupObject();
                     }
                 }
                 // If there's a switch to press, toggle it
-                if (hitInfo.transform.GetComponent<FanSwitch>() != null) {
-                    if (Input.GetKeyDown(a)) {
+                if (hitInfo.transform.GetComponent<FanSwitch>() != null)
+                {
+                    if (Input.GetKeyDown(a))
+                    {
                         FanSwitch fanSwitch = hitInfo.transform.GetComponent<FanSwitch>();
                         fanSwitch.Toggle();
                     }
                 }
             }
         }
-
-
-
     }
 
-    private void PickupObject() {
+    private void DropObject()
+    {
+        isHoldingSomething = false;
+
+        Debug.Log("Drop " + pickup.name);
+        pickup_rb.isKinematic = false;
+        pickup.SetParent(null);
+        pickup = null;
+    }
+
+    private void TurnObjectLeft()
+    {
+        pickup.transform.Rotate(0, -rotationAmount, 0);
+        Debug.Log("L1, turn object LEFT");
+    }
+
+    private void TurnObjectRight()
+    {
+        pickup.transform.Rotate(0, rotationAmount, 0);
+        Debug.Log("R1, turn object RIGHT");
+    }
+
+    private void PickupObject()
+    {
+        pickup = hitInfo.transform;
         // Check if the pickup object is a blowing fan. If so, the player can't pick it up.
-        if (pickup.GetComponent<Fan>() != null) {
-            if (pickup.GetComponentInChildren<Wind_Script>().isBlowing) {
+        if (pickup.GetComponent<Fan>() != null)
+        {
+            if (pickup.GetComponentInChildren<Wind_Script>().isBlowing)
+            {
                 return;
             }
         }
-        pickup = hitInfo.transform;
 
         isHoldingSomething = true;
 
@@ -94,12 +129,4 @@ public class ObjectInteraction : MonoBehaviour {
         pickup.SetParent(artTransform);
     }
 
-    private void DropObject() {
-        isHoldingSomething = false;
-
-        Debug.Log("Drop " + pickup.name);
-        pickup_rb.isKinematic = false;
-        pickup.SetParent(null);
-        pickup = null;
-    }
 }
