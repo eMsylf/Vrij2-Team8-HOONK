@@ -34,11 +34,11 @@ public class RotationCheck : MonoBehaviour {
         currentRotation = transform.eulerAngles.y;
         if (currentRotation >= rotationMin && currentRotation <= rotationMax) {
             isRotatedCorrectly = true;
+            correctRotationLight.color = Color.green;
         } else {
             isRotatedCorrectly = false;
+            correctRotationLight.color = Color.red;
         }
-
-        correctRotationLight.enabled = isRotatedCorrectly;
     }
 
     private void OnDrawGizmosSelected() {
@@ -60,14 +60,6 @@ public class RotationCheck : MonoBehaviour {
 
         Gizmos.DrawLine(transform.position, minPos);
         Gizmos.DrawLine(transform.position, maxPos);
-
-        /*
-        for (float i = start; i < partitions; i++) {
-            Vector3 tempPos1 = transform.position + new Vector3(Mathf.Sin((rotationMinRad + i - 1) / partitions), 0, Mathf.Cos((rotationMinRad + i - 1) / partitions)) * 2;
-            Vector3 tempPos2 = transform.position + new Vector3(Mathf.Sin((rotationMinRad + i) / partitions), 0, Mathf.Cos((rotationMinRad + i) / partitions)) * 2;
-        }
-        */
-
 
         partitions = (rotationMaxRad - rotationMinRad);
 

@@ -45,7 +45,6 @@ public class ObjectInteraction : MonoBehaviour {
             if (Input.GetKeyDown(lb)) {
                 pickup.transform.Rotate(0, -rotationAmount, 0);
                 Debug.Log("L1, turn object LEFT");
-
             }
             if (Input.GetKeyDown(rb)) {
                 pickup.transform.Rotate(0, rotationAmount, 0);
