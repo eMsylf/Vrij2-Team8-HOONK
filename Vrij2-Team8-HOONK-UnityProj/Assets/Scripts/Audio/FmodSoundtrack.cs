@@ -17,13 +17,14 @@ public class FmodSoundtrack : MonoBehaviour
     {
         music = RuntimeManager.CreateInstance(Event);
         music.getParameterByName("PartSelector", out PartSelector);
+
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.name == "Player")
         {
-            PartSelector = 3;
+            music.setParameterByName("partSelector", PartSelector);
         }
     }
 
