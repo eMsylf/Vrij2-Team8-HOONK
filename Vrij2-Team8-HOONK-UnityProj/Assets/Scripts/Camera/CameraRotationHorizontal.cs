@@ -34,7 +34,7 @@ public class CameraRotationHorizontal : MonoBehaviour {
 
         Vector3 forwardDirectionCamera = Vector3.Scale(transform.forward, new Vector3(1, 0, 1));
 
-        if (Input.GetAxis("Vertical") == 0f && Input.GetAxis("HorizontalR") == 0f) {
+        if (Input.GetAxis("Vertical") == 0f && Input.GetAxis("Horizontal") == 0f) {
             playerArt.rotation = storedRotation;
         } else {
             playerArt.rotation = Quaternion.Lerp(
