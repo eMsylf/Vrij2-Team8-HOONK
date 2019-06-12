@@ -60,7 +60,12 @@ ModelImporter:
     9500000: //RootNode
     13700000: pasted__RobotR_Bottom
     13700002: pasted__RobotR_Top
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3
+    second: {fileID: 2100000, guid: 89158017a64b8114980971d69cce7703, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
